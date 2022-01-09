@@ -1,0 +1,19 @@
+<div *ngIf="isJobLoaded" class="container">
+  <h1>{{job.name}} - <a routerLink="/jobs/{{job.name}}/metrics">Metrics</a></h1>
+  <table class="table table-striped">
+    <caption>Table containing a list of builds for the selected job</caption>
+    <thead>
+    <th scope="col">Build #</th>
+    <th scope="col">URL</th>
+    </thead>
+    <tbody *ngFor="let build of job.builds">
+    <tr>
+      <td>{{build.number}}</td>
+      <td><a routerLink="/jobs/{{job.name}}/build/{{build.number}}">{{build.url}}</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!isJobLoaded" class="text-center">
+  <img alt="Loading icon" src="assets/spinner-large.gif"/>
+</div>
