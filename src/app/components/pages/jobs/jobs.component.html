@@ -1,9 +1,0 @@
-<h1>List of All Available Jobs</h1>
-<div *ngIf="isJobsLoaded">
-  <div *ngFor="let job of jobs" class="list-group">
-    <a class="list-group-item list-group-item-action" routerLink="/jobs/{{job.name}}">{{job.name}}</a>
-  </div>
-</div>
-<div *ngIf="!isJobsLoaded" class="text-center">
-  <img alt="Loading icon" src="assets/spinner-large.gif"/>
-</div>

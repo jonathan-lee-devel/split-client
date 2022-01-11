@@ -1,14 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css'],
 })
+/**
+ * Modal component used within in all pages.
+ */
 export class ModalComponent implements OnInit {
   modalTitle: string = '';
 
-  constructor() {}
+  /**
+   * Default constructor.
+   */
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  /**
+   * Init function for modal component.
+   */
+  ngOnInit(): void {
+  }
 }
