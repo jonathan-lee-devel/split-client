@@ -17,6 +17,7 @@ import {ErrorInterceptor} from './interceptors/auth/error.interceptor';
 // eslint-disable-next-line max-len
 import {ForbiddenComponent} from './components/pages/error/forbidden/forbidden.component';
 import {ModalComponent} from './components/modal/modal.component';
+import {HomeComponent} from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {ModalComponent} from './components/modal/modal.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    HomeComponent,
     RegisterComponent,
     ForbiddenComponent,
     ModalComponent,

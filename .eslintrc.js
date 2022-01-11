@@ -16,6 +16,6 @@ module.exports = {
     'html',
   ],
   'rules': {
-    'new-cap': 'off',
+    'new-cap': 0,
   },
 };
