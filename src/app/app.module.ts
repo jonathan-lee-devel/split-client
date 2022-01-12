@@ -13,11 +13,16 @@ import {appRoutes} from './app.routes';
 import {LoginComponent} from './components/pages/login/login.component';
 // eslint-disable-next-line max-len
 import {RegisterComponent} from './components/pages/registration/register.component';
-import {ErrorInterceptor} from './interceptors/auth/error.interceptor';
+import {ErrorInterceptor} from './interceptors/error/error.interceptor';
 // eslint-disable-next-line max-len
 import {ForbiddenComponent} from './components/pages/error/forbidden/forbidden.component';
 import {ModalComponent} from './components/modal/modal.component';
 import {HomeComponent} from './components/pages/home/home.component';
+// eslint-disable-next-line max-len
+import {
+  PasswordResetRequestComponent,
+} from './components/pages/password-reset-request/password-reset-request.component';
+import { PasswordResetConfirmComponent } from './components/pages/password-reset-confirm/password-reset-confirm.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,8 @@ import {HomeComponent} from './components/pages/home/home.component';
     RegisterComponent,
     ForbiddenComponent,
     ModalComponent,
+    PasswordResetRequestComponent,
+    PasswordResetConfirmComponent,
   ],
   imports: [
     BrowserModule,

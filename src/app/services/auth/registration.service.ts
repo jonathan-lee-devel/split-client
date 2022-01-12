@@ -25,10 +25,12 @@ export class RegistrationService {
    * @param {string} confirmPassword to be used for registration
    * @return {Observable} for the registration request to API
    */
-  public register(email: string, password: string, confirmPassword: string)
+  public register(email: string, firstName: string, lastName: string, password: string, confirmPassword: string)
     : Observable<RegisterDto> {
     const body = {
       email,
+      firstname: firstName,
+      lastname: lastName,
       password,
       confirm_password: confirmPassword,
     };

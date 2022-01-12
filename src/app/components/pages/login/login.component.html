@@ -1,6 +1,6 @@
 <div class="sidenav">
   <div class="login-main-text">
-    <h2>Software Delivery Dashboard</h2>
+    <h2>Split</h2>
     <p>Login or register from here to access.</p>
   </div>
 </div>
@@ -11,8 +11,7 @@
         <div class="form-group">
           <label for="emailInput">E-mail Address</label>
           <input [(ngModel)]="email" class="form-control" id="emailInput" name="email"
-                 placeholder="email@ericsson.com" type="email">
-          <small>Only valid Ericsson e-mail addresses are accepted</small>
+                 placeholder="user@mail.com" type="email">
         </div>
         <div class="form-group">
           <label for="passwordInput">Password</label>
@@ -22,7 +21,10 @@
         <button class="btn btn-black" id="submit" type="submit">Login
         </button>
         <br>
-        <a routerLink="/register">Create an account?</a>
+        <div id="accountOptionsDiv">
+          <a routerLink="/register">Create an account?</a>
+          <a id="forgotPasswordOption" routerLink="/password/reset">Forgot your password?</a>
+        </div>
       </form>
     </div>
   </div>

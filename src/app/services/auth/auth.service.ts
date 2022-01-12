@@ -61,7 +61,7 @@ export class AuthService {
         .subscribe((response) => {
           if (response.login_status === 'SUCCESS') {
             this.setUserInfo({});
-            this.router.navigate(['/jobs']);
+            this.router.navigate(['/home']);
           }
         });
   }
