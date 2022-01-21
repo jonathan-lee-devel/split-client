@@ -1,6 +1,6 @@
 <header>
   <!-- NAVBAR START -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Split</a>
       <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
@@ -25,7 +25,9 @@
             </a>
             <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
               <li *ngIf="isLoggedIn">
-                <button (click)="doLogout()" class="dropdown-item" type="button">Logout</button>
+                <button (click)="doLogout()" class="dropdown-item" type="button">
+                  Logout
+                </button>
               </li>
             </ul>
           </li>
