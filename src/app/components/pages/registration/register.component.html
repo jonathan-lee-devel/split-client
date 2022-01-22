@@ -11,16 +11,17 @@
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="emailInput">E-mail</label>
-                    <input [(ngModel)]="email" class="form-control form-control-lg" id="emailInput" name="email"
-                           placeholder="user@mail.com"
+                    <input [(ngModel)]="email" autocomplete="username" class="form-control form-control-lg"
+                           id="emailInput"
+                           name="email" placeholder="user@mail.com"
                            type="email">
                   </div>
                 </div>
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="firstNameInput">First Name</label>
-                    <input [(ngModel)]="firstName" class="form-control form-control-lg" id="firstNameInput"
-                           name="firstname"
+                    <input [(ngModel)]="firstName" autocomplete="given-name" class="form-control form-control-lg"
+                           id="firstNameInput" name="firstname"
                            placeholder="First Name"
                            type="text">
                   </div>
@@ -28,8 +29,8 @@
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="lastNameInput">Last Name</label>
-                    <input [(ngModel)]="lastName" class="form-control form-control-lg" id="lastNameInput"
-                           name="lastname"
+                    <input [(ngModel)]="lastName" autocomplete="family-name" class="form-control form-control-lg"
+                           id="lastNameInput" name="lastname"
                            placeholder="Last Name"
                            type="text">
                   </div>
@@ -37,8 +38,8 @@
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="passwordInput">Password</label>
-                    <input [(ngModel)]="password" class="form-control form-control-lg" id="passwordInput"
-                           name="password"
+                    <input [(ngModel)]="password" autocomplete="new-password" class="form-control form-control-lg"
+                           id="passwordInput" name="password"
                            placeholder="Password"
                            type="password">
                   </div>

@@ -22,7 +22,10 @@ import {HomeComponent} from './components/pages/home/home.component';
 import {
   PasswordResetRequestComponent,
 } from './components/pages/password-reset-request/password-reset-request.component';
-import { PasswordResetConfirmComponent } from './components/pages/password-reset-confirm/password-reset-confirm.component';
+import {
+  PasswordResetConfirmComponent,
+} from './components/pages/password-reset-confirm/password-reset-confirm.component';
+import {ProfileComponent} from './components/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { PasswordResetConfirmComponent } from './components/pages/password-reset
     ModalComponent,
     PasswordResetRequestComponent,
     PasswordResetConfirmComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

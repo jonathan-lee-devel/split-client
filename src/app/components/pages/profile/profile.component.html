@@ -1,0 +1,44 @@
+<section class="vh-200">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-auto">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">Profile</h2>
+              <p class="text-white-50 mb-5">Update your details</p>
+              <form (ngSubmit)="doUpdateProfile()" method="post">
+                <div class="form-outline form-white mb-4">
+                  <div class="form-group">
+                    <label class="form-label" for="emailInput">E-mail Address</label>
+                    <input [(ngModel)]="email" class="form-control form-control-lg" disabled id="emailInput"
+                           name="email" placeholder="user@mail.com" type="email">
+                  </div>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <div class="form-group">
+                    <label class="form-label" for="firstNameInput">First Name</label>
+                    <input [(ngModel)]="firstName" class="form-control form-control-lg" id="firstNameInput"
+                           name="firstname"
+                           placeholder="First Name"
+                           type="text">
+                  </div>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <div class="form-group">
+                    <label class="form-label" for="lastNameInput">Last Name</label>
+                    <input [(ngModel)]="lastName" class="form-control form-control-lg" id="lastNameInput"
+                           name="lastname"
+                           placeholder="Last Name"
+                           type="text">
+                  </div>
+                </div>
+                <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

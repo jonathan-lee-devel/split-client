@@ -12,6 +12,7 @@ import {
 import {
   PasswordResetConfirmComponent,
 } from './components/pages/password-reset-confirm/password-reset-confirm.component';
+import {ProfileComponent} from './components/pages/profile/profile.component';
 
 export const appRoutes: Routes = [
   {
@@ -25,4 +26,5 @@ export const appRoutes: Routes = [
   {path: 'password/reset/confirm', component: PasswordResetConfirmComponent},
   {path: 'error/forbidden', component: ForbiddenComponent},
   {path: 'home', canActivate: [AuthGuard], component: HomeComponent},
+  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
 ];

@@ -11,14 +11,16 @@
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="emailInput">E-mail Address</label>
-                    <input [(ngModel)]="email" class="form-control form-control-lg" id="emailInput" name="email"
-                           placeholder="user@mail.com" type="email">
+                    <input [(ngModel)]="email" autocomplete="username" class="form-control form-control-lg"
+                           id="emailInput"
+                           name="email" placeholder="user@mail.com" type="email">
                   </div>
                 </div>
                 <div class="form-outline form-white mb-4">
                   <div class="form-group">
                     <label class="form-label" for="passwordInput">Password</label>
-                    <input [(ngModel)]="password" class="form-control form-control-lg" id="passwordInput"
+                    <input [(ngModel)]="password" autocomplete="current-password" class="form-control form-control-lg"
+                           id="passwordInput"
                            name="password"
                            placeholder="Password"
                            type="password">
