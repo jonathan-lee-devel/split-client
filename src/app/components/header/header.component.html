@@ -23,8 +23,13 @@
                role="button">
               Account
             </a>
-            <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
-              <li *ngIf="isLoggedIn">
+            <ul *ngIf="isLoggedIn" aria-labelledby="navbarDropdown" class="dropdown-menu">
+              <li class="nav-item">
+                <button class="dropdown-item" routerLink="/profile" type="button">
+                  Profile
+                </button>
+              </li>
+              <li class="nav-item">
                 <button (click)="doLogout()" class="dropdown-item" type="button">
                   Logout
                 </button>
