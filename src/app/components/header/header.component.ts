@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
    * @param {AuthService} authService used to authenticate user
    */
   constructor(private authService: AuthService) {
-    this.authService.isAuthenticated().subscribe((isLoggedIn) => {
+    this.authService.getIsLoggedIn().subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
   }

@@ -30,18 +30,31 @@ export class AuthService {
    * Used to determine if a user is authenticated.
    * @return {Observable} boolean indicating if user is authenticated
    */
-  public isAuthenticated(): Observable<boolean> {
+  public isAuthenticated(): boolean {
     const userData = localStorage.getItem(AuthService.USER_DATA_KEY);
-    this.isLoggedIn.next(!!(userData && JSON.parse(userData)));
+    if (userData) {
+      const successfulAuthentication =
+        JSON.parse(userData)['login_status'] === 'SUCCESS';
+      this.isLoggedIn.next(successfulAuthentication);
+      return successfulAuthentication;
+    }
+    return false;
+  }
+
+  /**
+   * Allow for subscriptions to the isLoggedIn event emitter.
+   * @return {Observable} observable for isLoggedIn event emitter
+   */
+  public getIsLoggedIn(): Observable<boolean> {
     return this.isLoggedIn;
   }
 
   /**
    * Used to set user info within local storage.
-   * @param {Object} user data to be stored
+   * @param {LoginDto} userInfo data to be stored
    */
-  public setUserInfo(user: any) {
-    localStorage.setItem(AuthService.USER_DATA_KEY, JSON.stringify(user));
+  public setUserInfo(userInfo: LoginDto) {
+    localStorage.setItem(AuthService.USER_DATA_KEY, JSON.stringify(userInfo));
   }
 
   /**
@@ -60,7 +73,7 @@ export class AuthService {
         })
         .subscribe((response) => {
           if (response.login_status === 'SUCCESS') {
-            this.setUserInfo({});
+            this.setUserInfo(response);
             this.router.navigate(['/home']);
           }
         });
@@ -73,6 +86,7 @@ export class AuthService {
     this.httpClient
         .post<LoginDto>(`${environment.FRONT_END_API_URL}/users/logout`, {})
         .subscribe((_) => {
+          this.setUserInfo({login_status: 'LOGGED_OUT'});
           this.router.navigate(['/login']);
         });
     this.isLoggedIn.next(false);
