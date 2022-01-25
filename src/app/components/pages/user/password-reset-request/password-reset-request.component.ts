@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../../environments/environment';
-import {PasswordResetDto} from '../../../dtos/ auth/PasswordResetDto';
-import {ModalService} from '../../../services/modal/modal.service';
+import {environment} from '../../../../../environments/environment';
+import {PasswordResetDto} from '../../../../dtos/ auth/PasswordResetDto';
+import {ModalService} from '../../../../services/modal/modal.service';
 
 @Component({
   selector: 'app-password-reset-request',

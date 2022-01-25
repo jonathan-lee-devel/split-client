@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {PasswordResetDto} from '../../../dtos/ auth/PasswordResetDto';
-import {environment} from '../../../../environments/environment';
-import {ModalService} from '../../../services/modal/modal.service';
+import {PasswordResetDto} from '../../../../dtos/ auth/PasswordResetDto';
+import {environment} from '../../../../../environments/environment';
+import {ModalService} from '../../../../services/modal/modal.service';
 
 @Component({
   selector: 'app-password-reset-confirm',

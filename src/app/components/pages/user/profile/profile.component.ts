@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../../services/profile.service';
-import {UserProfileDto} from '../../../dtos/UserProfileDto';
-import {ModalService} from '../../../services/modal/modal.service';
+import {ProfileService} from '../../../../services/profile.service';
+import {UserProfileDto} from '../../../../dtos/UserProfileDto';
+import {ModalService} from '../../../../services/modal/modal.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,9 +16,19 @@ export class ProfileComponent implements OnInit {
   firstName: string = '';
   lastName: string = '';
 
-  constructor(private profileService: ProfileService, private modalService: ModalService) {
+  /**
+   * Standard constructor.
+   * @param {ProfileService} profileService used to access user profile data
+   * @param {ModalService} modalService used to present modals to user
+   */
+  constructor(
+    private profileService: ProfileService,
+    private modalService: ModalService) {
   }
 
+  /**
+   * Initialization function, simply sets user data within form.
+   */
   ngOnInit(): void {
     this.profileService.getProfile('jonathan.lee.devel@gmail.com')
       .subscribe((profile) => {
@@ -28,6 +38,9 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  /**
+   * Update profile performed upon form submission.
+   */
   doUpdateProfile() {
     const profile: UserProfileDto = {
       email: this.email,
@@ -45,6 +58,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function used locally to update form fields.
+   * @private used only within the profile component.
+   */
   private updateFields() {
     const emailInput = document.getElementById('emailInput');
     if (emailInput) {

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RegistrationService} from '../../../services/auth/registration.service';
+import {RegistrationService} from '../../../../services/auth/registration.service';
 import {Router} from '@angular/router';
-import {ModalService} from '../../../services/modal/modal.service';
+import {ModalService} from '../../../../services/modal/modal.service';
 
 @Component({
   selector: 'app-registration',
