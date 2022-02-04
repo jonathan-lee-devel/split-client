@@ -31,11 +31,11 @@ export class ProfileComponent implements OnInit {
    */
   ngOnInit(): void {
     this.profileService.getProfile('jonathan.lee.devel@gmail.com')
-      .subscribe((profile) => {
-        this.email = profile.email;
-        this.firstName = profile.firstName;
-        this.lastName = profile.lastName;
-      });
+        .subscribe((profile) => {
+          this.email = profile.email;
+          this.firstName = profile.firstName;
+          this.lastName = profile.lastName;
+        });
   }
 
   /**
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
       this.lastName = updatedProfile.lastName;
       this.updateFields();
       this.modalService.showModal(
-        'Profile Update', 'Profile updated successfully',
+          'Profile Update', 'Profile updated successfully',
       );
     });
   }
