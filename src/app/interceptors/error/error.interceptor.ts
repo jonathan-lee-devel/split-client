@@ -93,6 +93,10 @@ export class ErrorInterceptor implements HttpInterceptor {
       this.router.navigate(['/error/forbidden']);
     }
 
+    if (error.status === 404) {
+      this.router.navigate(['/error/not-found']);
+    }
+
     if (error.status === 409) {
       this.modalService.showModal('Registration Error', 'User already exists');
     }

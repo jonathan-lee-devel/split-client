@@ -1,1 +1,7 @@
-<p>property-view works!</p>
+<h1>Property</h1>
+<div class="container">
+  <p>{{property.title}}</p>
+  <div *ngFor="let tenant of property.tenants">
+    <p>{{tenant}}</p>
+  </div>
+</div>

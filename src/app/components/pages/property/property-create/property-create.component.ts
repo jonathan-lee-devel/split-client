@@ -24,13 +24,13 @@ export class PropertyCreateComponent implements OnInit {
 
   doCreateProperty() {
     this.propertyService.createProperty(this.title, this.tenants)
-      .subscribe((property) => {
-        this.modalService.showModal(
-          'Property Creation',
-          `Property \'${property.title}\' successfully created`,
-        );
-        this.router.navigate(['/property/view']);
-      });
+        .subscribe((property) => {
+          this.modalService.showModal(
+              'Property Creation',
+              `Property \'${property.title}\' successfully created`,
+          );
+          this.router.navigate([`/property/view/${property.id}`]);
+        });
   }
 
   ngOnInit(): void {

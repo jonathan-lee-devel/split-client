@@ -15,6 +15,7 @@ import {
 import {ProfileComponent} from './components/pages/user/profile/profile.component';
 import {PropertyCreateComponent} from './components/pages/property/property-create/property-create.component';
 import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
+import {NotFoundComponent} from "./components/pages/error/not-found/not-found.component";
 
 export const appRoutes: Routes = [
   {
@@ -27,6 +28,7 @@ export const appRoutes: Routes = [
   {path: 'password/reset', component: PasswordResetRequestComponent},
   {path: 'password/reset/confirm', component: PasswordResetConfirmComponent},
   {path: 'error/forbidden', component: ForbiddenComponent},
+  {path: 'error/not-found', component: NotFoundComponent},
   {path: 'home', canActivate: [AuthGuard], component: HomeComponent},
   {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
   {
@@ -35,7 +37,7 @@ export const appRoutes: Routes = [
     component: PropertyCreateComponent,
   },
   {
-    path: 'property/view',
+    path: 'property/view/:id',
     canActivate: [AuthGuard],
     component: PropertyViewComponent,
   },
