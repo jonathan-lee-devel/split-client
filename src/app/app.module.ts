@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './components/app.component';
 import {HeaderComponent} from './components/header/header.component';
 import {RouterModule} from '@angular/router';
-import {FooterComponent} from './components/footer/footer.component';
 import {CommonModule} from '@angular/common';
 // eslint-disable-next-line max-len
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
@@ -35,13 +34,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
-import { NotFoundComponent } from './components/pages/error/not-found/not-found.component';
+import {NotFoundComponent} from './components/pages/error/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     LoginComponent,
     HomeComponent,
     RegisterComponent,
