@@ -14,4 +14,6 @@ FROM nginx:1.21.5-alpine
 
 COPY --from=build app/dist/split-angular /usr/share/nginx/html
 
+COPY nginx/default.conf /etc/nginx/
+
 EXPOSE 80
