@@ -15,7 +15,7 @@ export class PropertyViewComponent implements OnInit {
   property: PropertyDto = {
     id: '',
     title: '',
-    tenants: [],
+    tenantEmails: [],
   };
 
   /**
