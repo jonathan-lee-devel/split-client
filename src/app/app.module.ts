@@ -35,6 +35,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
 import {NotFoundComponent} from './components/pages/error/not-found/not-found.component';
+import {EmailRegistrationVerificationComponent} from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {NotFoundComponent} from './components/pages/error/not-found/not-found.co
     PropertyCreateComponent,
     PropertyViewComponent,
     NotFoundComponent,
+    EmailRegistrationVerificationComponent,
   ],
   imports: [
     BrowserModule,

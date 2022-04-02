@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {RegisterDto} from '../../dtos/ auth/RegisterDto';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
+import {RegistrationStatusDto} from '../../dtos/ auth/RegistrationStatusDto';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +39,20 @@ export class RegistrationService {
     return this.httpClient.post<RegisterDto>(
         `${environment.FRONT_END_API_URL}/users/register`,
         body,
+    );
+  }
+
+  /**
+   * Used to confirm user registration based off provided token.
+   *
+   * @param {string} token used to confirm registration
+   * @return {Observable<RegistrationStatusDto>} registration status
+   */
+  public confirmRegistration(token: string): Observable<RegistrationStatusDto> {
+    const params = new HttpParams().set('token', token);
+    return this.httpClient.get<RegistrationStatusDto>(
+        `${environment.FRONT_END_API_URL}/users/register/confirm`,
+        {params: params},
     );
   }
 }

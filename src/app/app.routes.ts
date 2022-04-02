@@ -8,14 +8,24 @@ import {AuthGuard} from './guards/auth/auth.guard';
 import {HomeComponent} from './components/pages/home/home.component';
 import {
   PasswordResetRequestComponent,
+// eslint-disable-next-line max-len
 } from './components/pages/user/password-reset-request/password-reset-request.component';
 import {
   PasswordResetConfirmComponent,
+// eslint-disable-next-line max-len
 } from './components/pages/user/password-reset-confirm/password-reset-confirm.component';
-import {ProfileComponent} from './components/pages/user/profile/profile.component';
-import {PropertyCreateComponent} from './components/pages/property/property-create/property-create.component';
-import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
-import {NotFoundComponent} from "./components/pages/error/not-found/not-found.component";
+import {ProfileComponent} from
+  './components/pages/user/profile/profile.component';
+import {PropertyCreateComponent} from
+  './components/pages/property/property-create/property-create.component';
+import {PropertyViewComponent} from
+  './components/pages/property/property-view/property-view.component';
+import {NotFoundComponent} from
+  './components/pages/error/not-found/not-found.component';
+import {
+  EmailRegistrationVerificationComponent,
+// eslint-disable-next-line max-len
+} from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
 
 export const appRoutes: Routes = [
   {
@@ -25,6 +35,10 @@ export const appRoutes: Routes = [
   },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {
+    path: 'register/verify/:token',
+    component: EmailRegistrationVerificationComponent,
+  },
   {path: 'password/reset', component: PasswordResetRequestComponent},
   {path: 'password/reset/confirm', component: PasswordResetConfirmComponent},
   {path: 'error/forbidden', component: ForbiddenComponent},
