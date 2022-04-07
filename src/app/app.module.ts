@@ -36,6 +36,8 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
 import {NotFoundComponent} from './components/pages/error/not-found/not-found.component';
 import {EmailRegistrationVerificationComponent} from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
+import { PropertyManageTenantsComponent } from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
+import { PropertyManageExpensesComponent } from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import {EmailRegistrationVerificationComponent} from './components/pages/user/to
     PropertyViewComponent,
     NotFoundComponent,
     EmailRegistrationVerificationComponent,
+    PropertyManageTenantsComponent,
+    PropertyManageExpensesComponent,
   ],
   imports: [
     BrowserModule,

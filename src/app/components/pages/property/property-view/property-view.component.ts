@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PropertyDto} from '../../../../dtos/properties/PropertyDto';
-import {PropertyService} from '../../../../services/property.service';
+import {PropertyService} from '../../../../services/property/property.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

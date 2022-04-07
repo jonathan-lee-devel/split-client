@@ -26,6 +26,12 @@ import {
   EmailRegistrationVerificationComponent,
 // eslint-disable-next-line max-len
 } from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
+import {
+  PropertyManageExpensesComponent
+} from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
+import {
+  PropertyManageTenantsComponent
+} from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
 
 export const appRoutes: Routes = [
   {
@@ -55,4 +61,14 @@ export const appRoutes: Routes = [
     canActivate: [AuthGuard],
     component: PropertyViewComponent,
   },
+  {
+    path: 'property/manage/:id/tenants',
+    canActivate: [AuthGuard],
+    component: PropertyManageTenantsComponent,
+  },
+  {
+    path: 'property/manage/:id/expenses',
+    canActivate: [AuthGuard],
+    component: PropertyManageExpensesComponent,
+  }
 ];

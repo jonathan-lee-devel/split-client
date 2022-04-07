@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PropertyService} from '../../../../services/property.service';
+import {PropertyService} from '../../../../services/property/property.service';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {ModalService} from '../../../../services/modal/modal.service';
 import {Router} from '@angular/router';
