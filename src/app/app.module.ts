@@ -38,6 +38,8 @@ import {NotFoundComponent} from './components/pages/error/not-found/not-found.co
 import {EmailRegistrationVerificationComponent} from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
 import { PropertyManageTenantsComponent } from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
 import { PropertyManageExpensesComponent } from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
+import { MyPropertiesViewComponent } from './components/pages/property/my-properties-view/my-properties-view.component';
+import { MyTenanciesViewComponent } from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { PropertyManageExpensesComponent } from './components/pages/property/pro
     EmailRegistrationVerificationComponent,
     PropertyManageTenantsComponent,
     PropertyManageExpensesComponent,
+    MyPropertiesViewComponent,
+    MyTenanciesViewComponent,
   ],
   imports: [
     BrowserModule,

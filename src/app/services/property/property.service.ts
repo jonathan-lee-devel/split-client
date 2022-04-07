@@ -25,4 +25,16 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/create`, property,
     );
   }
+
+  getPropertiesForUserAsAdmin() {
+    return this.httpClient.get<PropertyDto[]>(
+        `${environment.FRONT_END_API_URL}/properties/my/admin`,
+    );
+  }
+
+  getPropertiesForUserAsTenant() {
+    return this.httpClient.get<PropertyDto[]>(
+        `${environment.FRONT_END_API_URL}/properties/my/tenant`,
+    );
+  }
 }

@@ -32,6 +32,12 @@ import {
 import {
   PropertyManageTenantsComponent
 } from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
+import {
+  MyPropertiesViewComponent
+} from './components/pages/property/my-properties-view/my-properties-view.component';
+import {
+  MyTenanciesViewComponent
+} from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
 
 export const appRoutes: Routes = [
   {
@@ -62,6 +68,16 @@ export const appRoutes: Routes = [
     component: PropertyViewComponent,
   },
   {
+    path: 'property/my/properties',
+    canActivate: [AuthGuard],
+    component: MyPropertiesViewComponent,
+  },
+  {
+    path: 'property/my/tenancies',
+    canActivate: [AuthGuard],
+    component: MyTenanciesViewComponent,
+  },
+  {
     path: 'property/manage/:id/tenants',
     canActivate: [AuthGuard],
     component: PropertyManageTenantsComponent,
@@ -70,5 +86,5 @@ export const appRoutes: Routes = [
     path: 'property/manage/:id/expenses',
     canActivate: [AuthGuard],
     component: PropertyManageExpensesComponent,
-  }
+  },
 ];

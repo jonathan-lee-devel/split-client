@@ -16,6 +16,27 @@
         </ul>
         <!-- NAVBAR RIGHT START -->
         <ul class="nav navbar-nav navbar-right">
+          <!-- MY PROPERTIES START -->
+          <li *ngIf="isLoggedIn" class="nav-item dropdown">
+            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+               id="navbarDropdown3"
+               role="button">
+              My
+            </a>
+            <ul *ngIf="isLoggedIn" aria-labelledby="navbarDropdown" class="dropdown-menu">
+              <li class="nav-item">
+                <button class="dropdown-item" routerLink="/property/my/properties" type="button">
+                  Properties
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="dropdown-item" routerLink="/property/my/tenancies" type="button">
+                  Tenancies
+                </button>
+              </li>
+            </ul>
+          </li>
+          <!-- MY PROPERTIES END -->
           <!-- ACCOUNT DROPDOWN START -->
           <li *ngIf="isLoggedIn" class="nav-item dropdown">
             <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
