@@ -14,7 +14,7 @@ export class MyTenanciesViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.propertyService.
-        getPropertiesForUserAsAdmin()
+        getPropertiesForUserAsTenant()
         .subscribe((properties) => {
           this.properties = properties;
         });

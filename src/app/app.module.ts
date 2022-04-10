@@ -36,10 +36,11 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import {PropertyViewComponent} from './components/pages/property/property-view/property-view.component';
 import {NotFoundComponent} from './components/pages/error/not-found/not-found.component';
 import {EmailRegistrationVerificationComponent} from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
-import { PropertyManageTenantsComponent } from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
-import { PropertyManageExpensesComponent } from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
-import { MyPropertiesViewComponent } from './components/pages/property/my-properties-view/my-properties-view.component';
-import { MyTenanciesViewComponent } from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
+import {PropertyManageTenantsComponent} from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
+import {PropertyManageExpensesComponent} from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
+import {MyPropertiesViewComponent} from './components/pages/property/my-properties-view/my-properties-view.component';
+import {MyTenanciesViewComponent} from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
+import {PropertyInvitationVerificationComponent} from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MyTenanciesViewComponent } from './components/pages/property/my-tenanci
     PropertyManageExpensesComponent,
     MyPropertiesViewComponent,
     MyTenanciesViewComponent,
+    PropertyInvitationVerificationComponent,
   ],
   imports: [
     BrowserModule,

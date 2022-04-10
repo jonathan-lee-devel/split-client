@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {PropertyDto} from '../../dtos/properties/PropertyDto';
+import {
+  PropertyInvitationStatusDto,
+} from '../../dtos/properties/PropertyInvitationStatusDto';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +38,14 @@ export class PropertyService {
   getPropertiesForUserAsTenant() {
     return this.httpClient.get<PropertyDto[]>(
         `${environment.FRONT_END_API_URL}/properties/my/tenant`,
+    );
+  }
+
+  confirmPropertyInvitation(token: string) {
+    const params = new HttpParams().set('token', token);
+    return this.httpClient.get<PropertyInvitationStatusDto>(
+        `${environment.FRONT_END_API_URL}/properties/invitations/confirm`,
+        {params: params},
     );
   }
 }

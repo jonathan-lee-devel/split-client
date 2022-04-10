@@ -12,3 +12,11 @@ h1 {
 .card {
   border-radius: 1rem;
 }
+
+.inner-card {
+  width: 18rem;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+  background-color: #717171;
+}

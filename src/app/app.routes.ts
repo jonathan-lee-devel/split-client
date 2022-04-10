@@ -27,17 +27,20 @@ import {
 // eslint-disable-next-line max-len
 } from './components/pages/user/token/email-registration-verification/email-registration-verification.component';
 import {
-  PropertyManageExpensesComponent
+  PropertyManageExpensesComponent,
 } from './components/pages/property/property-admin/property-manage-expenses/property-manage-expenses.component';
 import {
-  PropertyManageTenantsComponent
+  PropertyManageTenantsComponent,
 } from './components/pages/property/property-admin/property-manage-tenants/property-manage-tenants.component';
 import {
-  MyPropertiesViewComponent
+  MyPropertiesViewComponent,
 } from './components/pages/property/my-properties-view/my-properties-view.component';
 import {
-  MyTenanciesViewComponent
+  MyTenanciesViewComponent,
 } from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
+import {
+  PropertyInvitationVerificationComponent
+} from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
 
 export const appRoutes: Routes = [
   {
@@ -86,5 +89,9 @@ export const appRoutes: Routes = [
     path: 'property/manage/:id/expenses',
     canActivate: [AuthGuard],
     component: PropertyManageExpensesComponent,
+  },
+  {
+    path: 'property/invitation/verify/:token',
+    component: PropertyInvitationVerificationComponent,
   },
 ];
