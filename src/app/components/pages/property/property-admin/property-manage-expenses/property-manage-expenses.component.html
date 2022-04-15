@@ -8,19 +8,19 @@
           <table class="table table-dark table-hover">
             <thead>
             <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">E-mail</th>
+              <th scope="col">Title</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Frequency</th>
               <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let tenant of property.tenantEmails">
-              <td>Jonathan</td>
-              <td>Mark</td>
-              <td>{{tenant}}</td>
+            <tr *ngFor="let expense of expenses">
+              <td>{{expense.title}}</td>
+              <td>{{expense.amount}}</td>
+              <td>{{expense.frequency}}</td>
               <td>
-                <button class="btn btn-primary">Remove</button>
+                <button class="btn btn-danger">Remove</button>
               </td>
             </tr>
             </tbody>
