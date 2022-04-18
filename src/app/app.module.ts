@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 // eslint-disable-next-line max-len
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './app.routes';
 import {LoginComponent} from './components/pages/user/login/login.component';
 // eslint-disable-next-line max-len
@@ -41,6 +41,10 @@ import {PropertyManageExpensesComponent} from './components/pages/property/prope
 import {MyPropertiesViewComponent} from './components/pages/property/my-properties-view/my-properties-view.component';
 import {MyTenanciesViewComponent} from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
 import {PropertyInvitationVerificationComponent} from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
+import { ExpenseCreateComponent } from './components/pages/expense/expense-create/expense-create.component';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,7 @@ import {PropertyInvitationVerificationComponent} from './components/pages/proper
     MyPropertiesViewComponent,
     MyTenanciesViewComponent,
     PropertyInvitationVerificationComponent,
+    ExpenseCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,11 @@ import {PropertyInvitationVerificationComponent} from './components/pages/proper
     MatFormFieldModule,
     MatIconModule,
     NoopAnimationsModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
   ],
   providers: [
     {

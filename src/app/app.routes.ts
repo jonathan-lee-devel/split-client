@@ -41,6 +41,9 @@ import {
 import {
   PropertyInvitationVerificationComponent
 } from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
+import {
+  ExpenseCreateComponent
+} from './components/pages/expense/expense-create/expense-create.component';
 
 export const appRoutes: Routes = [
   {
@@ -60,6 +63,11 @@ export const appRoutes: Routes = [
   {path: 'error/not-found', component: NotFoundComponent},
   {path: 'home', canActivate: [AuthGuard], component: HomeComponent},
   {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
+  {
+    path: 'expense/create/:propertyId',
+    canActivate: [AuthGuard],
+    component: ExpenseCreateComponent,
+  },
   {
     path: 'property/create',
     canActivate: [AuthGuard],

@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ExpenseDto} from '../../../../dtos/expenses/ExpenseDto';
 import {ExpenseService} from '../../../../services/expense/expense.service';
 import {
-  ExpenseFrequency
+  ExpenseFrequency,
 } from '../../../../dtos/expenses/enum/ExpenseFrequency';
 
 @Component({
@@ -23,6 +23,7 @@ export class PropertyViewComponent implements OnInit {
     tenantEmails: [],
   };
   expenses: ExpenseDto[] = [];
+  isPropertyAdmin: boolean = false;
 
   /**
    * Basic constructor.
@@ -41,6 +42,10 @@ export class PropertyViewComponent implements OnInit {
       this.propertyService.getPropertyById(params['id'])
           .subscribe((property) => {
             this.property = property;
+          });
+      this.propertyService.getIsPropertyAdmin(params['id'])
+          .subscribe((isAdmin) => {
+            this.isPropertyAdmin = isAdmin;
           });
       this.expenseService.getExpensesForProperty(params['id'])
           .subscribe((expenses) => {

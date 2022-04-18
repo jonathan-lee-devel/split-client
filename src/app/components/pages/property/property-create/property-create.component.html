@@ -5,30 +5,34 @@
         <h2 class="fw-bold mb-2 text-uppercase">Property</h2>
         <p class="text-white-50 mb-5">Create your property</p>
         <form (ngSubmit)="doCreateProperty()" method="post">
-          <div class="form-outline form-white mb-4">
-            <div class="form-group">
-              <label class="form-label" for="propertyTitleInput">Property Title</label>
-              <input [(ngModel)]="title" class="form-control form-control-lg" id="propertyTitleInput"
-                     name="title" placeholder="Property Title" type="text">
+          <div class="row">
+            <div class="form-outline form-white mb-4">
+              <div class="form-group">
+                <label class="form-label" for="propertyTitleInput">Property Title</label>
+                <input [(ngModel)]="title" class="form-control form-control-lg" id="propertyTitleInput"
+                       name="title" placeholder="Property Title" type="text">
+              </div>
             </div>
           </div>
-          <div class="form-outline form-white mb-4">
-            <div class="form-group">
-              <mat-form-field id="tenantEmailMatFormField">
-                <mat-chip-list #chipList>
-                  <mat-chip (removed)="remove(tenant)" *ngFor="let tenant of tenants" [removable]="removable"
-                            [selectable]="selectable">
-                    {{tenant}}
-                    <mat-icon *ngIf="removable" matChipRemove>X</mat-icon>
-                  </mat-chip>
-                  <label class="form-label" for="tenantsEmailInput">Tenants (by E-mail)</label>
-                  <input (matChipInputTokenEnd)="add($event)"
-                         [matChipInputAddOnBlur]="addOnBlur"
-                         [matChipInputFor]="chipList"
-                         class="form-control form-control-lg"
-                         id="tenantsEmailInput" name="tenants" type="email">
-                </mat-chip-list>
-              </mat-form-field>
+          <div class="row">
+            <div class="form-outline form-white mb-4">
+              <div class="form-group">
+                <mat-form-field id="tenantEmailMatFormField">
+                  <mat-chip-list #chipList>
+                    <mat-chip (removed)="remove(tenant)" *ngFor="let tenant of tenants" [removable]="removable"
+                              [selectable]="selectable">
+                      {{tenant}}
+                      <mat-icon *ngIf="removable" matChipRemove>X</mat-icon>
+                    </mat-chip>
+                    <label class="form-label" for="tenantsEmailInput">Tenants (by E-mail)</label>
+                    <input (matChipInputTokenEnd)="add($event)"
+                           [matChipInputAddOnBlur]="addOnBlur"
+                           [matChipInputFor]="chipList"
+                           class="form-control form-control-lg"
+                           id="tenantsEmailInput" name="tenants" type="email">
+                  </mat-chip-list>
+                </mat-form-field>
+              </div>
             </div>
           </div>
           <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Create</button>

@@ -48,4 +48,10 @@ export class PropertyService {
         {params: params},
     );
   }
+
+  getIsPropertyAdmin(propertyId: string) {
+    return this.httpClient.get<boolean>(
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/isAdmin`,
+    );
+  }
 }
