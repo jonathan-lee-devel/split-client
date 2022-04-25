@@ -1,3 +1,4 @@
+<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 <section class="vh-100">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -30,6 +31,7 @@
                 </p>
                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
               </form>
+              <a (click)="doGoogleLogin()" class="btn btn-outline-light btn-lg px-5" href="http://localhost:3000/auth/google">Sign in with Google</a>
             </div>
             <div>
               <p class="mb-0">Don't have an account? <a class="text-white-50 fw-bold" routerLink="/register">Sign Up</a>
