@@ -45,6 +45,7 @@ import { ExpenseCreateComponent } from './components/pages/expense/expense-creat
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { LoginAuthGoogleComponent } from './components/pages/user/login-auth-google/login-auth-google.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MyTenanciesViewComponent,
     PropertyInvitationVerificationComponent,
     ExpenseCreateComponent,
+    LoginAuthGoogleComponent,
   ],
   imports: [
     BrowserModule,

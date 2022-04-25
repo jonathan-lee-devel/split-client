@@ -39,11 +39,14 @@ import {
   MyTenanciesViewComponent,
 } from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
 import {
-  PropertyInvitationVerificationComponent
+  PropertyInvitationVerificationComponent,
 } from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
 import {
-  ExpenseCreateComponent
+  ExpenseCreateComponent,
 } from './components/pages/expense/expense-create/expense-create.component';
+import {
+  LoginAuthGoogleComponent,
+} from './components/pages/user/login-auth-google/login-auth-google.component';
 
 export const appRoutes: Routes = [
   {
@@ -52,6 +55,7 @@ export const appRoutes: Routes = [
     redirectTo: 'login',
   },
   {path: 'login', component: LoginComponent},
+  {path: 'login/auth/google', component: LoginAuthGoogleComponent},
   {path: 'register', component: RegisterComponent},
   {
     path: 'register/verify/:token',
