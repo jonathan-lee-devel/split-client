@@ -10,17 +10,17 @@ export class ProfileService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getProfile(email: string) {
+  getProfile() {
     return this.httpClient
-      .get<UserProfileDto>(
-        `${environment.FRONT_END_API_URL}/users/profile?email=${email}`,
-      );
+        .get<UserProfileDto>(
+            `${environment.FRONT_END_API_URL}/users/profile`,
+        );
   }
 
   updateProfile(profile: UserProfileDto) {
     return this.httpClient
-      .patch<UserProfileDto>(
-        `${environment.FRONT_END_API_URL}/users/profile`, profile,
-      );
+        .patch<UserProfileDto>(
+            `${environment.FRONT_END_API_URL}/users/profile`, profile,
+        );
   }
 }

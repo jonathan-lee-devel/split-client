@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
    * Initialization function, simply sets user data within form.
    */
   ngOnInit(): void {
-    this.profileService.getProfile('jonathan.lee.devel@gmail.com')
+    this.profileService.getProfile()
         .subscribe((profile) => {
           this.email = profile.email;
           this.firstName = profile.firstName;
