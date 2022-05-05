@@ -46,6 +46,7 @@ import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { LoginAuthGoogleComponent } from './components/pages/user/login-auth-google/login-auth-google.component';
+import { LoginAuthGoogleFailureComponent } from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LoginAuthGoogleComponent } from './components/pages/user/login-auth-goo
     PropertyInvitationVerificationComponent,
     ExpenseCreateComponent,
     LoginAuthGoogleComponent,
+    LoginAuthGoogleFailureComponent,
   ],
   imports: [
     BrowserModule,

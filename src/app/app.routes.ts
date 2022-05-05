@@ -47,6 +47,9 @@ import {
 import {
   LoginAuthGoogleComponent,
 } from './components/pages/user/login-auth-google/login-auth-google.component';
+import {
+  LoginAuthGoogleFailureComponent,
+} from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
 
 export const appRoutes: Routes = [
   {
@@ -56,6 +59,7 @@ export const appRoutes: Routes = [
   },
   {path: 'login', component: LoginComponent},
   {path: 'login/auth/google', component: LoginAuthGoogleComponent},
+  {path: 'login/auth/google/fail', component: LoginAuthGoogleFailureComponent},
   {path: 'register', component: RegisterComponent},
   {
     path: 'register/verify/:token',
