@@ -4,7 +4,6 @@ services:
   client:
     image: jonathanleedev/split-client:latest
     ports:
-      - '80:80'
       - '443:443'
     volumes:
       - ${SERVER_CERT_PATH}:/etc/nginx/server.crt
