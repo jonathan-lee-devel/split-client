@@ -19,4 +19,8 @@ export class MyPropertiesViewComponent implements OnInit {
           this.properties = properties;
         });
   }
+
+  deleteProperty(propertyId: string): void {
+    this.propertyService.deleteProperty(propertyId);
+  }
 }

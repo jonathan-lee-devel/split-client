@@ -54,4 +54,10 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/${propertyId}/isAdmin`,
     );
   }
+
+  deleteProperty(propertyId: string) {
+    return this.httpClient.delete<void>(
+        `${environment.FRONT_END_API_URL}/properties/delete/${propertyId}`,
+    );
+  }
 }
