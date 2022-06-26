@@ -21,6 +21,8 @@ export class MyPropertiesViewComponent implements OnInit {
   }
 
   deleteProperty(propertyId: string): void {
-    this.propertyService.deleteProperty(propertyId);
+    this.propertyService
+        .deleteProperty(propertyId)
+        .subscribe((_) => {});
   }
 }
