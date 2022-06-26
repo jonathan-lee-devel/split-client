@@ -13,6 +13,10 @@ export class MyPropertiesViewComponent implements OnInit {
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit(): void {
+    this.populateProperties();
+  }
+
+  populateProperties() {
     this.propertyService.
         getPropertiesForUserAsAdmin()
         .subscribe((properties) => {
@@ -23,6 +27,8 @@ export class MyPropertiesViewComponent implements OnInit {
   deleteProperty(propertyId: string): void {
     this.propertyService
         .deleteProperty(propertyId)
-        .subscribe((_) => {});
+        .subscribe((_) => {
+          this.populateProperties();
+        });
   }
 }
