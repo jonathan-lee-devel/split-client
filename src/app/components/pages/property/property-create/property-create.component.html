@@ -24,7 +24,7 @@
                       {{tenant}}
                       <mat-icon *ngIf="removable" matChipRemove>X</mat-icon>
                     </mat-chip>
-                    <label class="form-label" for="tenantsEmailInput">Tenants (by E-mail)</label>
+                    <label class="form-label" for="tenantsEmailInput">Tenant E-mail Addresses (Hit Enter/Return for each)</label>
                     <input (matChipInputTokenEnd)="add($event)"
                            [matChipInputAddOnBlur]="addOnBlur"
                            [matChipInputFor]="chipList"

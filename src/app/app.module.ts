@@ -41,12 +41,13 @@ import {PropertyManageExpensesComponent} from './components/pages/property/prope
 import {MyPropertiesViewComponent} from './components/pages/property/my-properties-view/my-properties-view.component';
 import {MyTenanciesViewComponent} from './components/pages/property/my-tenancies-view/my-tenancies-view.component';
 import {PropertyInvitationVerificationComponent} from './components/pages/property/token/property-invitation-verification/property-invitation-verification.component';
-import { ExpenseCreateComponent } from './components/pages/expense/expense-create/expense-create.component';
+import {ExpenseCreateComponent} from './components/pages/expense/expense-create/expense-create.component';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { LoginAuthGoogleComponent } from './components/pages/user/login-auth-google/login-auth-google.component';
-import { LoginAuthGoogleFailureComponent } from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
+import {LoginAuthGoogleComponent} from './components/pages/user/login-auth-google/login-auth-google.component';
+import {LoginAuthGoogleFailureComponent} from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { LoginAuthGoogleFailureComponent } from './components/pages/user/login-a
     MatDatepickerModule,
     ReactiveFormsModule,
     MatNativeDateModule,
+    MatInputModule,
   ],
   providers: [
     {
