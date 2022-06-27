@@ -8,9 +8,12 @@
           <div class="row">
             <div class="form-outline form-white mb-4">
               <div class="form-group">
-                <label class="form-label" for="propertyTitleInput">Property Title</label>
-                <input [(ngModel)]="title" class="form-control form-control-lg" id="propertyTitleInput"
-                       name="title" placeholder="Property Title" type="text">
+                <mat-form-field appearance="standard">
+                  <mat-label>Property Title</mat-label>
+                  <input matInput [(ngModel)]="title" placeholder="Property Title"
+                         id="propertyTitleInput"
+                         name="title" type="text">
+                </mat-form-field>
               </div>
             </div>
           </div>
@@ -24,7 +27,8 @@
                       {{tenant}}
                       <mat-icon *ngIf="removable" matChipRemove>X</mat-icon>
                     </mat-chip>
-                    <label class="form-label" for="tenantsEmailInput">Tenant E-mail Addresses (Hit Enter/Return for each)</label>
+                    <label class="form-label" for="tenantsEmailInput">Tenant E-mail Addresses (Hit Enter/Return for
+                      each)</label>
                     <input (matChipInputTokenEnd)="add($event)"
                            [matChipInputAddOnBlur]="addOnBlur"
                            [matChipInputFor]="chipList"
