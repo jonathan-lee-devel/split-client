@@ -50,6 +50,9 @@ import {
 import {
   LoginAuthGoogleFailureComponent,
 } from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
+import {
+  PropertyManageTenantsInviteComponent
+} from './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
 
 export const appRoutes: Routes = [
   {
@@ -100,6 +103,11 @@ export const appRoutes: Routes = [
     path: 'property/manage/:id/tenants',
     canActivate: [AuthGuard],
     component: PropertyManageTenantsComponent,
+  },
+  {
+    path: 'property/manage/:id/tenants/invite',
+    canActivate: [AuthGuard],
+    component: PropertyManageTenantsInviteComponent
   },
   {
     path: 'property/manage/:id/expenses',

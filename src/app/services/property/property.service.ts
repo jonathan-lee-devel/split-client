@@ -79,4 +79,14 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/tenant-leave`, body,
     );
   }
+
+  inviteToProperty(propertyId: string, tenantEmails: string[]) {
+    const body = {
+      propertyId,
+      tenantEmails,
+    };
+    return this.httpClient.patch<void>(
+        `${environment.FRONT_END_API_URL}/properties/tenant-invite`, body,
+    );
+  }
 }

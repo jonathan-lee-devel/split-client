@@ -45,9 +45,15 @@ import {ExpenseCreateComponent} from './components/pages/expense/expense-create/
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {LoginAuthGoogleComponent} from './components/pages/user/login-auth-google/login-auth-google.component';
-import {LoginAuthGoogleFailureComponent} from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
+import {LoginAuthGoogleComponent} from
+  './components/pages/user/login-auth-google/login-auth-google.component';
+import {LoginAuthGoogleFailureComponent} from
+  // eslint-disable-next-line max-len
+  './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
 import {MatInputModule} from '@angular/material/input';
+import {PropertyManageTenantsInviteComponent} from
+  // eslint-disable-next-line max-len
+  './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +79,7 @@ import {MatInputModule} from '@angular/material/input';
     ExpenseCreateComponent,
     LoginAuthGoogleComponent,
     LoginAuthGoogleFailureComponent,
+    PropertyManageTenantsInviteComponent,
   ],
   imports: [
     BrowserModule,
