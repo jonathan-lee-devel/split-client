@@ -70,4 +70,13 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/remove-tenant`, body,
     );
   }
+
+  removeCurrentUserAsTenantFromProperty(propertyId: string) {
+    const body = {
+      propertyId,
+    };
+    return this.httpClient.patch<void>(
+        `${environment.FRONT_END_API_URL}/properties/tenant-leave`, body,
+    );
+  }
 }

@@ -19,4 +19,11 @@ export class MyTenanciesViewComponent implements OnInit {
           this.properties = properties;
         });
   }
+
+  leaveProperty(propertyId: string) {
+    this.propertyService.removeCurrentUserAsTenantFromProperty(propertyId)
+        .subscribe((_) => {
+          this.ngOnInit();
+        });
+  }
 }
