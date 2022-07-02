@@ -16,7 +16,7 @@
             <tr *ngFor="let tenant of property.tenantEmails">
               <td>{{tenant}}</td>
               <td>
-                <button class="btn btn-danger">Remove</button>
+                <button (click)="removeTenantFromProperty(tenant)" class="btn btn-danger">Remove</button>
               </td>
             </tr>
             </tbody>

@@ -60,4 +60,14 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/delete/${propertyId}`,
     );
   }
+
+  removeTenantFromProperty(propertyId: string, tenantEmailToRemove: string) {
+    const body = {
+      propertyId,
+      tenantEmailToRemove,
+    };
+    return this.httpClient.patch<void>(
+        `${environment.FRONT_END_API_URL}/properties/remove-tenant`, body,
+    );
+  }
 }

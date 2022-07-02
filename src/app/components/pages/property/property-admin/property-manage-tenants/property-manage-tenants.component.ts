@@ -30,4 +30,13 @@ export class PropertyManageTenantsComponent implements OnInit {
           });
     });
   }
+
+  removeTenantFromProperty(tenantEmailToRemove: string) {
+    this
+        .propertyService
+        .removeTenantFromProperty(this.property.id, tenantEmailToRemove)
+        .subscribe((_) => {
+          this.ngOnInit();
+        });
+  }
 }
