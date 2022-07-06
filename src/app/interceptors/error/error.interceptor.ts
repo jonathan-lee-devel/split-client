@@ -75,8 +75,10 @@ export class ErrorInterceptor implements HttpInterceptor {
   private handleAuthError(error: HttpErrorResponse): Observable<any> {
     if (error.status === 400) {
       this.modalService.showModal(
-          'Registration Error',
-          error.error.errors[0].msg,
+          'Request Error',
+        (error.error.errors) ?
+          (error.error.errors[0].msg) :
+          (JSON.stringify(error.error)),
       );
     }
 

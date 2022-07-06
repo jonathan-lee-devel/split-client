@@ -7,7 +7,7 @@ import {ExpenseService} from '../../../../services/expense/expense.service';
 import {ModalService} from '../../../../services/modal/modal.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
-interface ExpenseSelection {
+export interface ExpenseSelection {
   value: number;
   viewValue: string;
 }

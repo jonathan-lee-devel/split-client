@@ -53,6 +53,9 @@ import {
 import {
   PropertyManageTenantsInviteComponent
 } from './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
+import {
+  ExpenseEditComponent
+} from './components/pages/expense/expense-edit/expense-edit.component';
 
 export const appRoutes: Routes = [
   {
@@ -78,6 +81,11 @@ export const appRoutes: Routes = [
     path: 'expense/create/:propertyId',
     canActivate: [AuthGuard],
     component: ExpenseCreateComponent,
+  },
+  {
+    path: 'expense/edit/:expenseId',
+    canActivate: [AuthGuard],
+    component: ExpenseEditComponent,
   },
   {
     path: 'property/create',

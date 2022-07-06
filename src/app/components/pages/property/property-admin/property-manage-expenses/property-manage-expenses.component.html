@@ -13,6 +13,7 @@
               <th scope="col">Amount</th>
               <th scope="col">Frequency</th>
               <th scope="col">Action</th>
+              <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +22,10 @@
               <td>{{expense.amount}}</td>
               <td>{{expense.frequency}}</td>
               <td>
-                <button class="btn btn-danger">Remove</button>
+                <button routerLink="/expense/edit/{{expense.id}}" class="btn btn-primary">Edit</button>
+              </td>
+              <td>
+                <button (click)="removeExpense(expense.id)" class="btn btn-danger">Remove</button>
               </td>
             </tr>
             </tbody>

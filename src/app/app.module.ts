@@ -54,6 +54,7 @@ import {MatInputModule} from '@angular/material/input';
 import {PropertyManageTenantsInviteComponent} from
   // eslint-disable-next-line max-len
   './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
+import { ExpenseEditComponent } from './components/pages/expense/expense-edit/expense-edit.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import {PropertyManageTenantsInviteComponent} from
     LoginAuthGoogleComponent,
     LoginAuthGoogleFailureComponent,
     PropertyManageTenantsInviteComponent,
+    ExpenseEditComponent,
   ],
   imports: [
     BrowserModule,

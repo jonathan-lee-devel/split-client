@@ -7,7 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ExpenseService} from '../../../../../services/expense/expense.service';
 import {ExpenseDto} from '../../../../../dtos/expenses/ExpenseDto';
 import {
-  ExpenseFrequency
+  ExpenseFrequency,
 } from '../../../../../dtos/expenses/enum/ExpenseFrequency';
 
 @Component({
@@ -44,5 +44,10 @@ export class PropertyManageExpensesComponent implements OnInit {
             }
           });
     });
+  }
+
+  removeExpense(expenseId: string) {
+    this.expenseService.deleteExpense(expenseId)
+        .subscribe((_) => {});
   }
 }

@@ -8,5 +8,5 @@ export interface ExpenseDto {
   frequency: ExpenseFrequency;
   startDate: Date;
   endDate: Date;
-  createdBy: string;
+  createdBy: string | null | undefined;
 }

@@ -37,4 +37,40 @@ export class ExpenseService {
         `${environment.FRONT_END_API_URL}/expenses/create`, expense,
     );
   }
+
+  deleteExpense(expenseId: string) {
+    return this.httpClient.delete<void>(
+        `${environment.FRONT_END_API_URL}/expenses/delete/${expenseId}`,
+    );
+  }
+
+  updateExpense(
+      expenseId: string,
+      propertyId: string,
+      title: string,
+      amount: number,
+      frequency: ExpenseFrequency,
+      startDate: Date,
+      endDate: Date) {
+    const amountAsString = String(amount);
+    const body: ExpenseDto = {
+      'id': expenseId,
+      title,
+      propertyId,
+      'amount': amountAsString,
+      frequency,
+      startDate,
+      endDate,
+      'createdBy': undefined,
+    };
+    return this.httpClient.patch<void>(
+        `${environment.FRONT_END_API_URL}/expenses/update`, body,
+    );
+  }
+
+  getExpense(expenseId: string) {
+    return this.httpClient.get<ExpenseDto>(
+        `${environment.FRONT_END_API_URL}/expenses/${expenseId}`,
+    );
+  }
 }
