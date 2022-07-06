@@ -1,0 +1,60 @@
+<section class="vh-100">
+  <div class="card bg-dark text-white">
+    <div class="card-body p-5 text-center">
+      <div class="mb-md-5 mt-md-4 pb-5">
+        <h2 class="fw-bold mb-2 text-uppercase">Expense</h2>
+        <p class="text-white-50 mb-5">Edit an expense</p>
+        <form (ngSubmit)="doUpdateExpense()" method="post">
+          <div class="form-outline form-white mb-4">
+            <div class="form-group">
+              <div class="row">
+                <mat-form-field appearance="standard">
+                  <mat-label>Expense Title</mat-label>
+                  <input matInput [(ngModel)]="title" placeholder="Expense Title"
+                         id="expenseTitleInput"
+                         name="title" type="text">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="standard">
+                  <mat-label>Expense Amount</mat-label>
+                  <input matInput [(ngModel)]="amount" placeholder="Expense Amount"
+                         id="expenseAmountInput"
+                         name="amount" type="number">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="fill" id="frequencyFormField">
+                  <mat-label>Frequency</mat-label>
+                  <mat-select [(ngModel)]="frequency" name="frequency">
+                    <mat-option *ngFor="let expenseSelection of expenseSelections" [value]="expenseSelection.value">
+                      {{expenseSelection.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter a date range</mat-label>
+                  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                    <input matStartDate formControlName="start" placeholder="Start date">
+                    <input matEndDate formControlName="end" placeholder="End date">
+                  </mat-date-range-input>
+                  <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Update</button>
+        </form>
+        <div class="mb-md-5 mt-md-4 pb-5">
+          <button routerLink="/property/manage/{{propertyId}}/expenses" class="btn btn-primary" id="backButton">Back to
+            Property
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
