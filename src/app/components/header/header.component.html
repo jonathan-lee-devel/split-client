@@ -16,6 +16,22 @@
         </ul>
         <!-- NAVBAR RIGHT START -->
         <ul class="nav navbar-nav navbar-right">
+          <!-- CREATE/NEW START -->
+          <li *ngIf="isLoggedIn" class="nav-item dropdown">
+            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+               id="navbarDropdown4"
+               role="button">
+              New
+            </a>
+            <ul *ngIf="isLoggedIn" aria-labelledby="navbarDropdown" class="dropdown-menu">
+              <li class="nav-item">
+                <button class="dropdown-item" routerLink="/property/create" type="button">
+                  Property
+                </button>
+              </li>
+            </ul>
+          </li>
+          <!-- CREATE/NEW END -->
           <!-- MY PROPERTIES START -->
           <li *ngIf="isLoggedIn" class="nav-item dropdown">
             <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"

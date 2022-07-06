@@ -1,15 +1,30 @@
 <section class="vh-100">
-  <div class="card bg-dark text-white text-center" id="gettingStartedCard">
-    <div class="card-header fw-bold">
-      Notification
+  <div *ngIf="notifications.length === 0">
+    <div class="card bg-dark text-white text-center">
+      <div class="card-header fw-bold">
+        Notification
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">No notifications</h5>
+      </div>
+      <div class="card-footer text-muted">
+        Just now
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Getting Started</h5>
-      <p class="card-text">Click the button below to get started with your first property</p>
-      <button class="btn btn-outline-light btn-lg px-5" routerLink="/property/create">Create a Property</button>
-    </div>
-    <div class="card-footer text-muted">
-      Just Now
+  </div>
+  <div *ngFor="let notification of notifications">
+    <div class="card bg-dark text-white text-center" id="gettingStartedCard">
+      <div class="card-header fw-bold">
+        Notification
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{notification.title}}</h5>
+        <p class="card-text">{{notification.text}}</p>
+        <button *ngIf="notification.routerLink" class="btn btn-outline-light btn-lg px-5" routerLink="{{notification.routerLink}}">{{notification.buttonText}}</button>
+      </div>
+      <div class="card-footer text-muted">
+        {{this.calculateTimeDifference(notification.datetime)}}
+      </div>
     </div>
   </div>
 </section>
