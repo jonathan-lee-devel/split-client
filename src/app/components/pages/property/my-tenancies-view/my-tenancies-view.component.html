@@ -5,6 +5,13 @@
         <h2 class="fw-bold mb-2 text-uppercase">Properties</h2>
         <h3 class="text-white-50 mb-5">My Tenancies</h3>
       </div>
+      <div *ngIf="properties.length === 0" class="row justify-content-center mb-md-5 mt-md-4 pb-5">
+        <div class="card inner-card">
+          <div class="card-body">
+            No tenancies
+          </div>
+        </div>
+      </div>
       <div *ngFor="let property of properties" class="row justify-content-center mb-md-5 mt-md-4 pb-5">
         <div class="card inner-card">
           <img src="assets/default_house_avatar.png" class="card-img-top" alt="House image">
