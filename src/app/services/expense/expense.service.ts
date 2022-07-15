@@ -21,8 +21,8 @@ export class ExpenseService {
       title: string,
       amount: number,
       frequency: ExpenseFrequency,
-      startDate: string,
-      endDate: string,
+      startDate: Date,
+      endDate: Date,
   ) {
     const expense = {
       propertyId,

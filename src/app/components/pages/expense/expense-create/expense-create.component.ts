@@ -49,13 +49,17 @@ export class ExpenseCreateComponent implements OnInit {
   }
 
   doCreateExpense() {
+    const startDate = new Date(this.range.get('start')?.value.toISOString());
+    startDate.setDate(startDate.getDate() + 1);// Account for bug
+    const endDate = new Date(this.range.get('end')?.value.toISOString());
+    endDate.setDate(endDate.getDate() + 1);// Account for bug
     this.expenseService.createExpense(
         this.propertyId,
         this.title,
         this.amount,
         this.frequency,
-        this.range.get('start')?.value,
-        this.range.get('end')?.value,
+        startDate,
+        endDate,
     ).subscribe((expense) => {
       this.modalService.showModal(
           'Expense Creation',
