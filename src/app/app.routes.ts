@@ -50,6 +50,9 @@ import {
 import {
   ExpenseEditComponent,
 } from './components/pages/expense/expense-edit/expense-edit.component';
+import {
+  PropertyExpenseReportViewComponent
+} from './components/pages/property/property-expense-report-view/property-expense-report-view.component';
 
 export const appRoutes: Routes = [
   {
@@ -88,6 +91,11 @@ export const appRoutes: Routes = [
     path: 'property/view/:id',
     canActivate: [AuthGuard],
     component: PropertyViewComponent,
+  },
+  {
+    path: 'property/view/:id/expense-report',
+    canActivate: [AuthGuard],
+    component: PropertyExpenseReportViewComponent,
   },
   {
     path: 'property/my/properties',

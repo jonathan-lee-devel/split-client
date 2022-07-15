@@ -88,4 +88,18 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/tenant-invite`, body,
     );
   }
+
+  getTotalExpensesPerMonthForProperty(propertyId: string) {
+    return this.httpClient.get<string>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-total`,
+    );
+  }
+
+  getTotalExpensesPerTenantPerMonthForProperty(propertyId: string) {
+    return this.httpClient.get<string>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-per-tenant`,
+    );
+  }
 }

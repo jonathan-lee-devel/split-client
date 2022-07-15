@@ -50,6 +50,7 @@ import {PropertyManageTenantsInviteComponent} from
   // eslint-disable-next-line max-len
   './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
 import {ExpenseEditComponent} from './components/pages/expense/expense-edit/expense-edit.component';
+import { PropertyExpenseReportViewComponent } from './components/pages/property/property-expense-report-view/property-expense-report-view.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import {ExpenseEditComponent} from './components/pages/expense/expense-edit/expe
     ExpenseCreateComponent,
     PropertyManageTenantsInviteComponent,
     ExpenseEditComponent,
+    PropertyExpenseReportViewComponent,
   ],
   imports: [
     BrowserModule,
