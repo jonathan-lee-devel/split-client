@@ -19,10 +19,10 @@ export class PropertyService {
     );
   }
 
-  createProperty(title: string, tenants: string[]) {
+  createProperty(title: string, tenantEmails: string[]) {
     const property = {
       title,
-      tenants,
+      tenantEmails,
     };
     return this.httpClient.post<PropertyDto>(
         `${environment.FRONT_END_API_URL}/properties/create`, property,
