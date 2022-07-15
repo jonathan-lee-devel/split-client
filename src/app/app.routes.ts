@@ -45,16 +45,10 @@ import {
   ExpenseCreateComponent,
 } from './components/pages/expense/expense-create/expense-create.component';
 import {
-  LoginAuthGoogleComponent,
-} from './components/pages/user/login-auth-google/login-auth-google.component';
-import {
-  LoginAuthGoogleFailureComponent,
-} from './components/pages/user/login-auth-google-failure/login-auth-google-failure.component';
-import {
-  PropertyManageTenantsInviteComponent
+  PropertyManageTenantsInviteComponent,
 } from './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
 import {
-  ExpenseEditComponent
+  ExpenseEditComponent,
 } from './components/pages/expense/expense-edit/expense-edit.component';
 
 export const appRoutes: Routes = [
@@ -64,8 +58,6 @@ export const appRoutes: Routes = [
     redirectTo: 'login',
   },
   {path: 'login', component: LoginComponent},
-  {path: 'login/auth/google', component: LoginAuthGoogleComponent},
-  {path: 'login/auth/google/fail', component: LoginAuthGoogleFailureComponent},
   {path: 'register', component: RegisterComponent},
   {
     path: 'register/verify/:token',
@@ -115,7 +107,7 @@ export const appRoutes: Routes = [
   {
     path: 'property/manage/:id/tenants/invite',
     canActivate: [AuthGuard],
-    component: PropertyManageTenantsInviteComponent
+    component: PropertyManageTenantsInviteComponent,
   },
   {
     path: 'property/manage/:id/expenses',
