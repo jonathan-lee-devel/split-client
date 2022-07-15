@@ -30,7 +30,7 @@
             <tbody>
             <tr *ngFor="let tenant of property.tenantEmails">
               <td>{{tenant}}</td>
-              <td>{{isAccepted(tenant)}}</td>
+              <td>{{toIsAcceptedCharacter(tenant)}}</td>
             </tr>
             </tbody>
           </table>

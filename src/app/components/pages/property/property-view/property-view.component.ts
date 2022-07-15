@@ -65,8 +65,7 @@ export class PropertyViewComponent implements OnInit {
     return `${dateStringList[0]}-${dateStringList[1]}-${dateStringList[2].split('T')[0]}`;
   }
 
-  isAccepted(tenant: string) {
+  toIsAcceptedCharacter(tenant: string) {
     return (this.property.acceptedTenantEmails.includes(tenant)) ? '✓' : '𐄂';
   }
-
 }
