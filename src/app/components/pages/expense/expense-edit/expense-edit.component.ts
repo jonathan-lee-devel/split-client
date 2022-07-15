@@ -44,7 +44,11 @@ export class ExpenseEditComponent implements OnInit {
       this.expenseId = params['expenseId'];
       this.expenseService.getExpense(this.expenseId).subscribe((expense) => {
         this.title = expense.title;
-        this.amount = Number(expense.amount.slice(1, expense.amount.length));
+        this.amount = Number(
+            expense.amount
+                .slice(1, expense.amount.length)
+                .replace(',', ''),
+        );
         this.frequency = expense.frequency;
         const startDate = new Date(expense.startDate);
         startDate.setDate(startDate.getDate() - 1);// Account for bug
