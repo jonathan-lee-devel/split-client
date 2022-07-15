@@ -48,14 +48,16 @@ export class ProfileComponent implements OnInit {
       lastName: this.lastName,
     };
 
-    this.profileService.updateProfile(profile).subscribe((updatedProfile) => {
-      this.firstName = updatedProfile.firstName;
-      this.lastName = updatedProfile.lastName;
-      this.updateFields();
-      this.modalService.showModal(
-          'Profile Update', 'Profile updated successfully',
-      );
-    });
+    this.profileService
+        .updateProfile(profile.firstName, profile.lastName)
+        .subscribe((updatedProfile) => {
+          this.firstName = updatedProfile.firstName;
+          this.lastName = updatedProfile.lastName;
+          this.updateFields();
+          this.modalService.showModal(
+              'Profile Update', 'Profile updated successfully',
+          );
+        });
   }
 
   /**

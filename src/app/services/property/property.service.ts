@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {PropertyDto} from '../../dtos/properties/PropertyDto';
 import {
@@ -42,10 +42,9 @@ export class PropertyService {
   }
 
   confirmPropertyInvitation(token: string) {
-    const params = new HttpParams().set('token', token);
     return this.httpClient.get<PropertyInvitationStatusDto>(
-        `${environment.FRONT_END_API_URL}/properties/invitations/confirm`,
-        {params: params},
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/invitations/confirm/${token}`,
     );
   }
 

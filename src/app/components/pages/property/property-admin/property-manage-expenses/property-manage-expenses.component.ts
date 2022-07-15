@@ -46,7 +46,7 @@ export class PropertyManageExpensesComponent implements OnInit {
     });
   }
 
-  removeExpense(expenseId: string) {
+  removeExpense(expenseId: string | null | undefined) {
     this.expenseService.deleteExpense(expenseId)
         .subscribe((_) => {
           this.ngOnInit();

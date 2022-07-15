@@ -36,7 +36,7 @@ export class PropertyInvitationVerificationComponent implements OnInit {
       this.propertyService.confirmPropertyInvitation(params['token'])
           .subscribe((propertyInvitationStatus) => {
             let message;
-            switch (propertyInvitationStatus.property_invitation_status) {
+            switch (propertyInvitationStatus.status) {
               case 'INVALID_TOKEN':
                 message = 'An invalid token has been provided';
                 break;
@@ -47,7 +47,9 @@ export class PropertyInvitationVerificationComponent implements OnInit {
               case 'SUCCESS':
                 // eslint-disable-next-line max-len
                 message = 'Your e-mail has been verified successfully, you may now view the property';
-                this.propertyId = propertyInvitationStatus.property_id;
+                if (typeof propertyInvitationStatus.propertyId === 'string') {
+                  this.propertyId = propertyInvitationStatus.propertyId;
+                }
                 break;
               default:
                 message = 'An unknown error has occurred';

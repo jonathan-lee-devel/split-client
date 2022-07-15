@@ -38,7 +38,7 @@ export class ExpenseService {
     );
   }
 
-  deleteExpense(expenseId: string) {
+  deleteExpense(expenseId: string | null | undefined) {
     return this.httpClient.delete<void>(
         `${environment.FRONT_END_API_URL}/expenses/delete/${expenseId}`,
     );
@@ -54,7 +54,7 @@ export class ExpenseService {
       endDate: Date) {
     const amountAsString = String(amount);
     const body: ExpenseDto = {
-      'id': expenseId,
+      'id': undefined,
       title,
       propertyId,
       'amount': amountAsString,
@@ -64,7 +64,7 @@ export class ExpenseService {
       'createdBy': undefined,
     };
     return this.httpClient.patch<void>(
-        `${environment.FRONT_END_API_URL}/expenses/update`, body,
+        `${environment.FRONT_END_API_URL}/expenses/update/${expenseId}`, body,
     );
   }
 

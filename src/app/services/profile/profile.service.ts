@@ -17,10 +17,13 @@ export class ProfileService {
         );
   }
 
-  updateProfile(profile: UserProfileDto) {
+  updateProfile(firstname: string, lastname: string) {
+    const body = {
+      firstname, lastname,
+    };
     return this.httpClient
         .patch<UserProfileDto>(
-            `${environment.FRONT_END_API_URL}/users/profile`, profile,
+            `${environment.FRONT_END_API_URL}/users/profile/update`, body,
         );
   }
 }
