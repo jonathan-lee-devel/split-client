@@ -15,6 +15,7 @@ export class PropertyManageTenantsComponent implements OnInit {
     id: '',
     title: '',
     tenantEmails: [],
+    acceptedTenantEmails: [],
   };
 
   constructor(

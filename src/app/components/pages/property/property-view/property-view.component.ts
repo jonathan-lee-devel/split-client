@@ -21,6 +21,7 @@ export class PropertyViewComponent implements OnInit {
     id: '',
     title: '',
     tenantEmails: [],
+    acceptedTenantEmails: [],
   };
   expenses: ExpenseDto[] = [];
   isPropertyAdmin: boolean = false;
@@ -63,4 +64,9 @@ export class PropertyViewComponent implements OnInit {
     // eslint-disable-next-line max-len
     return `${dateStringList[0]}-${dateStringList[1]}-${dateStringList[2].split('T')[0]}`;
   }
+
+  isAccepted(tenant: string) {
+    return (this.property.acceptedTenantEmails.includes(tenant)) ? '✓' : '𐄂';
+  }
+
 }

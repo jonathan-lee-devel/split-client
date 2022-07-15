@@ -24,11 +24,13 @@
             <thead>
             <tr>
               <th scope="col">E-mail</th>
+              <th scope="col">Accepted</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let tenant of property.tenantEmails">
               <td>{{tenant}}</td>
+              <td>{{isAccepted(tenant)}}</td>
             </tr>
             </tbody>
           </table>

@@ -20,6 +20,7 @@ export class PropertyManageExpensesComponent implements OnInit {
     id: '',
     title: '',
     tenantEmails: [],
+    acceptedTenantEmails: [],
   };
   expenses: ExpenseDto[] = [];
 
