@@ -34,7 +34,7 @@ export class EmailRegistrationVerificationComponent implements OnInit {
       this.registrationService.confirmRegistration(params['token'])
           .subscribe((registrationStatus) => {
             let message;
-            switch (registrationStatus.registration_status) {
+            switch (registrationStatus.status) {
               case 'INVALID_TOKEN':
                 message = 'An invalid token has been provided';
                 break;

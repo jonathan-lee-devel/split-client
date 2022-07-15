@@ -30,16 +30,16 @@ export class PasswordResetConfirmComponent implements OnInit {
 
   doConfirmPasswordReset() {
     const body = {
-      token: this.token,
       password: this.password,
       confirm_password: this.confirmPassword,
     };
 
     this.httpClient
         .post<PasswordResetDto>(
-            `${environment.FRONT_END_API_URL}/users/password/reset/confirm`,
+            // eslint-disable-next-line max-len
+            `${environment.FRONT_END_API_URL}/users/password/reset/confirm/${this.token}`,
             body).subscribe((response) => {
-          if (response.password_reset_status === 'SUCCESS') {
+          if (response.status === 'SUCCESS') {
             this.modalService.showModal('Password Reset',
                 'Password reset successfuly, you can now login');
             this.router.navigate(['/login']);

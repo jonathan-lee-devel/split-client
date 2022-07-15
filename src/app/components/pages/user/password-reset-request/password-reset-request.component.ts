@@ -34,17 +34,15 @@ export class PasswordResetRequestComponent implements OnInit {
    * Action to perform password reset request called from U.I.
    */
   doPasswordReset() {
-    const params = {
+    const body = {
       email: this.email,
     };
 
     this.httpClient
         .post<PasswordResetDto>(
-            `${environment.FRONT_END_API_URL}/users/password/reset`, {}, {
-              params: params,
-            })
+            `${environment.FRONT_END_API_URL}/users/password/reset`, body)
         .subscribe((response) => {
-          if (response.password_reset_status ===
+          if (response.status ===
           'AWAITING_EMAIL_VERIFICATION') {
             this.modalService
                 .showModal('Password Reset',

@@ -49,10 +49,8 @@ export class RegistrationService {
    * @return {Observable<RegistrationStatusDto>} registration status
    */
   public confirmRegistration(token: string): Observable<RegistrationStatusDto> {
-    const params = new HttpParams().set('token', token);
     return this.httpClient.get<RegistrationStatusDto>(
-        `${environment.FRONT_END_API_URL}/users/register/confirm`,
-        {params: params},
+        `${environment.FRONT_END_API_URL}/users/register/confirm/${token}`,
     );
   }
 }

@@ -26,17 +26,21 @@ export class RegisterComponent implements OnInit {
   }
 
   doRegister() {
+    console.log('HERE');
     this.registrationService
         .register(this.email, this.firstName, this.lastName, this.password, this.confirmPassword)
         .subscribe((response) => {
-          if (response.registration_status === 'AWAITING_EMAIL_VERIFICATION') {
+          if (response.status === 'AWAITING_EMAIL_VERIFICATION') {
             this.modalService.showModal(
                 'Registration Status',
                 'Awaiting e-mail verification, please check your inbox',
             );
             this.router.navigate(['/login']);
           } else {
-            window.alert(response.registration_status);
+            this.modalService.showModal(
+                'Registration Status',
+                `${response.status}`,
+            );
           }
         });
   }
