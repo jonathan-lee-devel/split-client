@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationDto} from '../../../dtos/notifications/NotificationDto';
+import {
+  NotificationService,
+} from '../../../services/notifications/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +17,29 @@ export class HomeComponent implements OnInit {
   /**
    * Standard constructor.
    */
-  constructor() {
+  constructor(private notificationService: NotificationService) {
   }
 
   /**
    * Init function.
    */
   ngOnInit(): void {
+    this.notificationService.getNotificationsForUser()
+        .subscribe((notifications) => {
+          this.notifications = HomeComponent.sortNotifications(notifications);
+          console.log(JSON.stringify(notifications));
+        });
+  }
+
+  private static sortNotifications(notifications: NotificationDto[]) {
+    notifications = notifications.sort((object, otherObject) => {
+      return new Date(otherObject.datetime).getTime() - new Date(object.datetime).getTime();
+    });
+    return notifications;
   }
 
   calculateTimeDifference(datetime: Date): string {
+    datetime = new Date(datetime);
     let timeMessage = HomeComponent.timeSince(datetime);
     if (timeMessage === '0 seconds ago') {
       timeMessage = 'Just now';
