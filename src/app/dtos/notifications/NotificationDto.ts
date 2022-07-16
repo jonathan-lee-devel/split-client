@@ -2,6 +2,6 @@ export interface NotificationDto {
   title: string;
   text: string;
   datetime: Date;
-  routerLink: string;
-  buttonText: string;
+  routerLink: string | undefined;
+  buttonText: string | undefined;
 }
