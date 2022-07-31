@@ -8,11 +8,23 @@
           <div class="form-outline form-white mb-4">
             <div class="form-group">
               <div class="row">
-                <mat-form-field appearance="standard">
+                <mat-form-field appearance="fill">
+                  <mat-label>Tenant</mat-label>
+                  <mat-select [(value)]="tenantEmail">
+                    <mat-option *ngFor="let tenant of property.tenantEmails" [value]="tenant">
+                      {{tenant}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="fill">
                   <mat-label>Expense</mat-label>
-                  <input [(ngModel)]="expenseId" id="expenseTitleInput" matInput
-                         name="expense"
-                         placeholder="Expense" type="text">
+                  <mat-select [(value)]="expenseId">
+                    <mat-option *ngFor="let expense of expenses" [value]="expense.id">
+                      {{expense.title}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </div>
               <div class="row">

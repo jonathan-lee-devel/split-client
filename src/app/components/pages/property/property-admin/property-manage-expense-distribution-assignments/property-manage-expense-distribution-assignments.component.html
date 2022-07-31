@@ -13,6 +13,7 @@
           <table class="table table-dark table-hover">
             <thead>
             <tr>
+              <th scope="col">Tenant</th>
               <th scope="col">Expense</th>
               <th scope="col">Amount</th>
               <th scope="col">Action</th>
@@ -21,6 +22,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let expenseDistributionAssignment of expenseDistributionAssignments">
+              <td>{{expenseDistributionAssignment.tenantEmail}}</td>
               <td>{{expenseIdToTitle(expenseDistributionAssignment.expenseId)}}</td>
               <td>{{amountNumberToAmountString(expenseDistributionAssignment.amount)}}</td>
               <td>

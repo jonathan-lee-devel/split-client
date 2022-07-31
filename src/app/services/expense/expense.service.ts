@@ -85,4 +85,47 @@ export class ExpenseService {
         `${environment.FRONT_END_API_URL}/expenses/distribution-assignments/delete/${expenseDistributionAssignmentId}`,
     );
   }
+
+  createExpenseDistributionAssignment(
+      expenseId: string,
+      tenantEmail: string,
+      amount: number,
+  ) {
+    const body = {
+      expenseId,
+      tenantEmail,
+      amount,
+    };
+    return this.httpClient.post<ExpenseDistributionAssignmentDto>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/expenses/distribution-assignments/create`, body,
+    );
+  }
+
+  getExpenseDistributionAssignment(
+      propertyId: string,
+      expenseDistributionAssignmentId: string,
+  ) {
+    return this.httpClient.get<ExpenseDistributionAssignmentDto>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/expenses/distribution-assignments/${propertyId}/${expenseDistributionAssignmentId}`,
+    );
+  }
+
+  updateExpenseDistributionAssignment(
+      expenseDistributionAssignmentId: string,
+      expenseId: string,
+      tenantEmail: string,
+      amount: number,
+  ) {
+    const body = {
+      expenseId,
+      tenantEmail,
+      amount: amount * 100.00,
+    };
+    return this.httpClient.patch<void>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/expenses/distribution-assignments/update/${expenseDistributionAssignmentId}`, body,
+    );
+  }
 }
