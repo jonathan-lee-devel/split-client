@@ -7,6 +7,7 @@ import {ExpenseService} from '../../../../services/expense/expense.service';
 import {
   ExpenseFrequency,
 } from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseBreakdownDto} from "../../../../dtos/expenses/ExpenseBreakdownDto";
 
 @Component({
   selector: 'app-property-expense-report-view',
@@ -22,7 +23,10 @@ export class PropertyExpenseReportViewComponent implements OnInit {
   };
   expenses: ExpenseDto[] = [];
   totalExpenses: string = '$100.00';
-  totalExpensesPerTenant: string = '$25.00';
+  tenantExpenseBreakdown: ExpenseBreakdownDto = {
+    total: '- €1.00',
+    expenses: [],
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -51,8 +55,8 @@ export class PropertyExpenseReportViewComponent implements OnInit {
           });
       this.propertyService
           .getTotalExpensesPerTenantPerMonthForProperty(params['id'])
-          .subscribe((totalPerTenant) => {
-            this.totalExpensesPerTenant = totalPerTenant;
+          .subscribe((tenantExpenseBreakdown) => {
+            this.tenantExpenseBreakdown = tenantExpenseBreakdown;
           });
     });
   }

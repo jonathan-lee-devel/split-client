@@ -6,7 +6,6 @@ export interface ExpenseDto {
   propertyId: string;
   amount: string;
   frequency: ExpenseFrequency;
-  startDate: Date;
-  endDate: Date;
+  date: Date;
   createdBy: string | null | undefined;
 }

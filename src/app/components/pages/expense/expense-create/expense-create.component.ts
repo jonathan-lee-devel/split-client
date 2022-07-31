@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {
-  ExpenseFrequency,
-} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseFrequency} from '../../../../dtos/expenses/enum/ExpenseFrequency';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from '../../../../services/expense/expense.service';
 import {ModalService} from '../../../../services/modal/modal.service';
@@ -30,9 +28,8 @@ export class ExpenseCreateComponent implements OnInit {
     {value: 5, viewValue: ExpenseFrequency[ExpenseFrequency.YEARLY]},
   ];
   propertyId: string = '';
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
+  dateFormGroup = new FormGroup({
+    date: new FormControl(),
   });
 
   constructor(
@@ -40,7 +37,8 @@ export class ExpenseCreateComponent implements OnInit {
     private expenseService: ExpenseService,
     private modalService: ModalService,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -49,17 +47,13 @@ export class ExpenseCreateComponent implements OnInit {
   }
 
   doCreateExpense() {
-    const startDate = new Date(this.range.get('start')?.value.toISOString());
-    startDate.setDate(startDate.getDate() + 1);// Account for bug
-    const endDate = new Date(this.range.get('end')?.value.toISOString());
-    endDate.setDate(endDate.getDate() + 1);// Account for bug
+    const date = new Date(this.dateFormGroup.get('date')?.value.toISOString());
     this.expenseService.createExpense(
         this.propertyId,
         this.title,
         this.amount,
         this.frequency,
-        startDate,
-        endDate,
+        date,
     ).subscribe((expense) => {
       this.modalService.showModal(
           'Expense Creation',

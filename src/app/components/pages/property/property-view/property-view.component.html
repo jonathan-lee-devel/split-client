@@ -4,11 +4,18 @@
       <div class="mb-md-5 mt-md-4 pb-5">
         <h2 class="fw-bold mb-2 text-uppercase">Property</h2>
         <h3 class="text-white-50 mb-5">{{property.title}}</h3>
-        <img src="assets/default_house_avatar.png" alt="Property image"/>
+        <img alt="Property image" src="assets/default_house_avatar.png"/>
       </div>
-      <div class="btn-group-lg" *ngIf="isPropertyAdmin">
-        <a routerLink="/property/manage/{{property.id}}/expenses" class="btn btn-primary">Manage Expenses</a>
-        <a routerLink="/property/manage/{{property.id}}/tenants" class="btn btn-primary">Manage Tenants</a>
+      <div *ngIf="isPropertyAdmin" class="btn-group-lg">
+        <div>
+          <a class="btn btn-primary" routerLink="/property/manage/{{property.id}}/tenants">Manage Tenants</a>
+        </div>
+        <div><a class="btn btn-primary" routerLink="/property/manage/{{property.id}}/expenses">Manage Expenses</a>
+        </div>
+        <div><a class="btn btn-primary" routerLink="/property/manage/{{property.id}}/expense-distribution-assignments">Manage
+          Expense
+          Distribution
+          Assignments</a></div>
       </div>
       <div class="mb-md-5 mt-md-4 pb-5">
         <h3 class="fw-bold mb-2 text-uppercase">Tenants:</h3>
@@ -20,7 +27,7 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-dark table-hover" *ngIf="property.tenantEmails.length !== 0">
+          <table *ngIf="property.tenantEmails.length !== 0" class="table table-dark table-hover">
             <thead>
             <tr>
               <th scope="col">E-mail</th>
@@ -46,13 +53,12 @@
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-dark table-hover" *ngIf="expenses.length !== 0">
+          <table *ngIf="expenses.length !== 0" class="table table-dark table-hover">
             <thead>
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Frequency</th>
-              <th scope="col">Start Date</th>
-              <th scope="col">End Date</th>
+              <th scope="col">Date</th>
               <th scope="col">Amount</th>
             </tr>
             </thead>
@@ -60,16 +66,45 @@
             <tr *ngFor="let expense of expenses">
               <td>{{expense.title}}</td>
               <td>{{expense.frequency}}</td>
-              <td>{{formatDate(expense.startDate)}}</td>
-              <td>{{formatDate(expense.endDate)}}</td>
+              <td>{{formatDate(expense.date)}}</td>
               <td>{{expense.amount}}</td>
             </tr>
             </tbody>
           </table>
         </div>
       </div>
+      <div class="mb-md-5 mt-md-4 pb-5">
+        <h3 class="fw-bold mb-2 text-uppercase">Expense Distribution Assignments:</h3>
+        <div *ngIf="expenseDistributionAssignments.length === 0"
+             class="row justify-content-center mb-md-5 mt-md-4 pb-5">
+          <div class="card inner-card">
+            <div class="card-body">
+              No expense distribution assignments
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table *ngIf="expenseDistributionAssignments.length !== 0" class="table table-dark table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Tenant</th>
+              <th scope="col">Expense</th>
+              <th scope="col">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let expenseDistributionAssignment of expenseDistributionAssignments">
+              <td>{{expenseDistributionAssignment.tenantEmail}}</td>
+              <td>{{expenseIdToTitle(expenseDistributionAssignment.expenseId)}}</td>
+              <td>{{amountNumberToAmountString(expenseDistributionAssignment.amount)}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <div class="btn-group-lg">
-        <a routerLink="/property/view/{{property.id}}/expense-report" class="btn btn-primary">View Monthly Expense Report</a>
+        <a class="btn btn-primary" routerLink="/property/view/{{property.id}}/expense-report">View Monthly Expense
+          Report</a>
       </div>
     </div>
   </div>

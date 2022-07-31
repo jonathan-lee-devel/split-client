@@ -50,12 +50,10 @@ export class ExpenseEditComponent implements OnInit {
                 .replace(',', ''),
         );
         this.frequency = expense.frequency;
-        const startDate = new Date(expense.startDate);
-        startDate.setDate(startDate.getDate() - 1);// Account for bug
-        const endDate = new Date(expense.endDate);
-        endDate.setDate(endDate.getDate() - 1);// Account for bug
+        const date = new Date(expense.date);
+        date.setDate(date.getDate() - 1);// Account for bug
         this.range.setValue({
-          'start': startDate, 'end': endDate,
+          'start': date, 'end': date,
         });
         this.propertyId = expense.propertyId;
       });
@@ -63,18 +61,15 @@ export class ExpenseEditComponent implements OnInit {
   }
 
   doUpdateExpense() {
-    const startDate = new Date(this.range.get('start')?.value.toISOString());
-    startDate.setDate(startDate.getDate() + 1);// Account for bug
-    const endDate = new Date(this.range.get('end')?.value.toISOString());
-    endDate.setDate(endDate.getDate() + 1);// Account for bug
+    const date = new Date(this.range.get('start')?.value.toISOString());
+    date.setDate(date.getDate() + 1);// Account for bug
     this.expenseService.updateExpense(
         this.expenseId,
         this.propertyId,
         this.title,
         this.amount,
         this.frequency,
-        startDate,
-        endDate,
+        date,
     ).subscribe((_) => {
       this.modalService.showModal(
           'Expense Creation',

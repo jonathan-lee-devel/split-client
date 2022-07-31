@@ -5,6 +5,7 @@ import {PropertyDto} from '../../dtos/properties/PropertyDto';
 import {
   PropertyInvitationStatusDto,
 } from '../../dtos/properties/PropertyInvitationStatusDto';
+import {ExpenseBreakdownDto} from "../../dtos/expenses/ExpenseBreakdownDto";
 
 @Injectable({
   providedIn: 'root',
@@ -97,7 +98,7 @@ export class PropertyService {
   }
 
   getTotalExpensesPerTenantPerMonthForProperty(propertyId: string) {
-    return this.httpClient.get<string>(
+    return this.httpClient.get<ExpenseBreakdownDto>(
         // eslint-disable-next-line max-len
         `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-per-tenant`,
     );

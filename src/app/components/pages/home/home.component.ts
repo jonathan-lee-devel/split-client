@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
     this.notificationService.getNotificationsForUser()
         .subscribe((notifications) => {
           this.notifications = HomeComponent.sortNotifications(notifications);
-          console.log(JSON.stringify(notifications));
         });
   }
 
