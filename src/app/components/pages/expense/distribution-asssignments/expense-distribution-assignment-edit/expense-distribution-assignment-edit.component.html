@@ -1,0 +1,43 @@
+<section class="vh-100">
+  <div class="card bg-dark text-white">
+    <div class="card-body p-5 text-center">
+      <div class="mb-md-5 mt-md-4 pb-5">
+        <h2 class="fw-bold mb-2 text-uppercase">Expense Distribution Assignment</h2>
+        <p class="text-white-50 mb-5">Edit an expense distribution assignment</p>
+        <form (ngSubmit)="doUpdateExpenseDistributionAssignment()" method="post">
+          <div class="form-outline form-white mb-4">
+            <div class="form-group">
+              <div class="row">
+                <mat-form-field appearance="fill" class="example-full-width">
+                  <mat-label>Tenant</mat-label>
+                  <input matInput placeholder="Tenant" readonly value="{{tenantEmail}}">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="fill" class="example-full-width">
+                  <mat-label>Expense</mat-label>
+                  <input matInput placeholder="Expense" readonly value="{{expenseTitle}}">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="standard">
+                  <mat-label>Expense Amount</mat-label>
+                  <input [(ngModel)]="amount" id="expenseAmountInput" matInput
+                         name="amount"
+                         placeholder="Expense Amount" type="number">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Update</button>
+        </form>
+        <div class="mb-md-5 mt-md-4 pb-5">
+          <button class="btn btn-primary" id="backButton"
+                  routerLink="/property/manage/{{propertyId}}/expense-distribution-assignments">Back to
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

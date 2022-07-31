@@ -51,6 +51,9 @@ import {PropertyManageTenantsInviteComponent} from
   './components/pages/property/property-admin/property-manage-tenants/invite/property-manage-tenants-invite/property-manage-tenants-invite.component';
 import {ExpenseEditComponent} from './components/pages/expense/expense-edit/expense-edit.component';
 import { PropertyExpenseReportViewComponent } from './components/pages/property/property-expense-report-view/property-expense-report-view.component';
+import { ExpenseDistributionAssignmentCreateComponent } from './components/pages/expense/distribution-asssignments/expense-distribution-assignment-create/expense-distribution-assignment-create.component';
+import { PropertyManageExpenseDistributionAssignmentsComponent } from './components/pages/property/property-admin/property-manage-expense-distribution-assignments/property-manage-expense-distribution-assignments.component';
+import { ExpenseDistributionAssignmentEditComponent } from './components/pages/expense/distribution-asssignments/expense-distribution-assignment-edit/expense-distribution-assignment-edit.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +80,9 @@ import { PropertyExpenseReportViewComponent } from './components/pages/property/
     PropertyManageTenantsInviteComponent,
     ExpenseEditComponent,
     PropertyExpenseReportViewComponent,
+    ExpenseDistributionAssignmentCreateComponent,
+    PropertyManageExpenseDistributionAssignmentsComponent,
+    ExpenseDistributionAssignmentEditComponent,
   ],
   imports: [
     BrowserModule,

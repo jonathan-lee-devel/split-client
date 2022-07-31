@@ -1,0 +1,51 @@
+<section class="vh-100">
+  <div class="card bg-dark text-white">
+    <div class="card-body p-5 text-center">
+      <div class="mb-md-5 mt-md-4 pb-5">
+        <h2 class="fw-bold mb-2 text-uppercase">Expense Distribution Assignment</h2>
+        <p class="text-white-50 mb-5">Create an expense distribution assignment</p>
+        <form (ngSubmit)="doCreateExpenseDistributionAssignment()" method="post">
+          <div class="form-outline form-white mb-4">
+            <div class="form-group">
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Tenant</mat-label>
+                  <mat-select [(value)]="tenantEmail">
+                    <mat-option *ngFor="let tenant of property.tenantEmails" [value]="tenant">
+                      {{tenant}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="fill">
+                  <mat-label>Expense</mat-label>
+                  <mat-select [(value)]="expenseId">
+                    <mat-option *ngFor="let expense of expenses" [value]="expense.id">
+                      {{expense.title}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="standard">
+                  <mat-label>Expense Amount</mat-label>
+                  <input [(ngModel)]="amount" id="expenseAmountInput" matInput
+                         name="amount"
+                         placeholder="Expense Amount" type="number">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Create</button>
+        </form>
+        <div class="mb-md-5 mt-md-4 pb-5">
+          <button class="btn btn-primary" id="backButton"
+                  routerLink="/property/manage/{{propertyId}}/expense-distribution-assignments">Back to
+            Property
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,9 +4,8 @@ import {PropertyService} from '../../../../services/property/property.service';
 import {ActivatedRoute} from '@angular/router';
 import {ExpenseDto} from '../../../../dtos/expenses/ExpenseDto';
 import {ExpenseService} from '../../../../services/expense/expense.service';
-import {
-  ExpenseFrequency,
-} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseFrequency} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseDistributionAssignmentDto} from '../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
 
 @Component({
   selector: 'app-property-view',
@@ -25,6 +24,7 @@ export class PropertyViewComponent implements OnInit {
   };
   expenses: ExpenseDto[] = [];
   isPropertyAdmin: boolean = false;
+  expenseDistributionAssignments: ExpenseDistributionAssignmentDto[] = [];
 
   /**
    * Basic constructor.
@@ -47,12 +47,23 @@ export class PropertyViewComponent implements OnInit {
       this.propertyService.getIsPropertyAdmin(params['id'])
           .subscribe((isAdmin) => {
             this.isPropertyAdmin = isAdmin;
+            if (this.isPropertyAdmin) {
+              this.expenseService
+                  .getExpenseDistributionAssignmentsForProperty(
+                      params['id'],
+                  )
+                  .subscribe((expenseDistributionAssignmentDtos) => {
+                    this
+                        .expenseDistributionAssignments =
+                  expenseDistributionAssignmentDtos;
+                  });
+            }
           });
       this.expenseService.getExpensesForProperty(params['id'])
           .subscribe((expenses) => {
             this.expenses = expenses;
             for (const expense of this.expenses) {
-              // @ts-ignore
+            // @ts-ignore
               expense.frequency = ExpenseFrequency[expense.frequency];
             }
           });
@@ -66,6 +77,17 @@ export class PropertyViewComponent implements OnInit {
   }
 
   toIsAcceptedCharacter(tenant: string) {
-    return (this.property.acceptedTenantEmails.includes(tenant)) ? '✓' : '𐄂';
+    return (this.property.acceptedTenantEmails.includes(tenant)) ? '✓' : 'X';
+  }
+
+  expenseIdToTitle(expenseId: string) {
+    const expense = this.expenses
+        .find((expenseDto) => expenseDto.id === expenseId);
+    return (expense) ? expense.title : '';
+  }
+
+  amountNumberToAmountString(amount: string) {
+    const amountAsFloat = parseFloat(String(Number(amount) / 100)).toFixed(2);
+    return `€${amountAsFloat}`;
   }
 }
