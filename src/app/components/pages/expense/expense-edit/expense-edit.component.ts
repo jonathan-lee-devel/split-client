@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {
-  ExpenseFrequency,
-} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseFrequency} from '../../../../dtos/expenses/enum/ExpenseFrequency';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from '../../../../services/expense/expense.service';
@@ -27,9 +25,8 @@ export class ExpenseEditComponent implements OnInit {
     {value: 5, viewValue: ExpenseFrequency[ExpenseFrequency.YEARLY]},
   ];
   propertyId: string = '';
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
+  dateFormGroup = new FormGroup({
+    date: new FormControl(),
   });
 
   constructor(
@@ -37,7 +34,8 @@ export class ExpenseEditComponent implements OnInit {
     private expenseService: ExpenseService,
     private modalService: ModalService,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -51,18 +49,15 @@ export class ExpenseEditComponent implements OnInit {
         );
         this.frequency = expense.frequency;
         const date = new Date(expense.date);
-        date.setDate(date.getDate() - 1);// Account for bug
-        this.range.setValue({
-          'start': date, 'end': date,
-        });
+        this.dateFormGroup.setValue({date: date});
         this.propertyId = expense.propertyId;
       });
     });
   }
 
   doUpdateExpense() {
-    const date = new Date(this.range.get('start')?.value.toISOString());
-    date.setDate(date.getDate() + 1);// Account for bug
+    const date = new Date(this.dateFormGroup.get('date')?.value.toISOString());
+    date.setHours(date.getHours() + (date.getTimezoneOffset() / 60.0) * -1);
     this.expenseService.updateExpense(
         this.expenseId,
         this.propertyId,

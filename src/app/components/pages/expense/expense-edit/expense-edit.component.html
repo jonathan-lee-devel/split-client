@@ -10,17 +10,17 @@
               <div class="row">
                 <mat-form-field appearance="standard">
                   <mat-label>Expense Title</mat-label>
-                  <input matInput [(ngModel)]="title" placeholder="Expense Title"
-                         id="expenseTitleInput"
-                         name="title" type="text">
+                  <input [(ngModel)]="title" id="expenseTitleInput" matInput
+                         name="title"
+                         placeholder="Expense Title" type="text">
                 </mat-form-field>
               </div>
               <div class="row">
                 <mat-form-field appearance="standard">
                   <mat-label>Expense Amount</mat-label>
-                  <input matInput [(ngModel)]="amount" placeholder="Expense Amount"
-                         id="expenseAmountInput"
-                         name="amount" type="number">
+                  <input [(ngModel)]="amount" id="expenseAmountInput" matInput
+                         name="amount"
+                         placeholder="Expense Amount" type="number">
                 </mat-form-field>
               </div>
               <div class="row">
@@ -33,16 +33,13 @@
                   </mat-select>
                 </mat-form-field>
               </div>
-              <div class="row">
+              <div [formGroup]="dateFormGroup" class="row">
                 <mat-form-field appearance="fill">
-                  <mat-label>Enter a date range</mat-label>
-                  <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-                    <input matStartDate formControlName="start" placeholder="Start date">
-                    <input matEndDate formControlName="end" placeholder="End date">
-                  </mat-date-range-input>
-                  <mat-hint>DD/MM/YYYY – DD/MM/YYYY</mat-hint>
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-date-range-picker #picker></mat-date-range-picker>
+                  <mat-label>Choose a date</mat-label>
+                  <input [matDatepicker]="picker" formControlName="date" matInput>
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
               </div>
             </div>
@@ -50,7 +47,7 @@
           <button class="btn btn-outline-light btn-lg px-5" id="submitButton" type="submit">Update</button>
         </form>
         <div class="mb-md-5 mt-md-4 pb-5">
-          <button routerLink="/property/manage/{{propertyId}}/expenses" class="btn btn-primary" id="backButton">Back to
+          <button class="btn btn-primary" id="backButton" routerLink="/property/manage/{{propertyId}}/expenses">Back to
             Property
           </button>
         </div>

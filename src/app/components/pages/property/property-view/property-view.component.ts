@@ -71,9 +71,8 @@ export class PropertyViewComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
-    const dateStringList = String(date).split('-');
-    // eslint-disable-next-line max-len
-    return `${dateStringList[0]}-${dateStringList[1]}-${dateStringList[2].split('T')[0]}`;
+    const wrappedDate = new Date(date);
+    return wrappedDate.toLocaleDateString();
   }
 
   toIsAcceptedCharacter(tenant: string) {

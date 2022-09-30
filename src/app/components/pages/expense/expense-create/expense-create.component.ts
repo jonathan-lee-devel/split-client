@@ -48,6 +48,7 @@ export class ExpenseCreateComponent implements OnInit {
 
   doCreateExpense() {
     const date = new Date(this.dateFormGroup.get('date')?.value.toISOString());
+    date.setHours(date.getHours() + (date.getTimezoneOffset() / 60.0) * -1);
     this.expenseService.createExpense(
         this.propertyId,
         this.title,
