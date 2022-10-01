@@ -4,12 +4,8 @@ import {PropertyService} from '../../../../services/property/property.service';
 import {ActivatedRoute} from '@angular/router';
 import {ExpenseDto} from '../../../../dtos/expenses/ExpenseDto';
 import {ExpenseService} from '../../../../services/expense/expense.service';
-import {
-  ExpenseFrequency,
-} from '../../../../dtos/expenses/enum/ExpenseFrequency';
-import {
-  ExpenseDistributionAssignmentDto,
-} from '../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
+import {ExpenseFrequency} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {ExpenseDistributionAssignmentDto} from '../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
 
 @Component({
   selector: 'app-property-view',
@@ -75,9 +71,8 @@ export class PropertyViewComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
-    const dateStringList = String(date).split('-');
-    // eslint-disable-next-line max-len
-    return `${dateStringList[0]}-${dateStringList[1]}-${dateStringList[2].split('T')[0]}`;
+    const wrappedDate = new Date(date);
+    return wrappedDate.toLocaleDateString();
   }
 
   toIsAcceptedCharacter(tenant: string) {
