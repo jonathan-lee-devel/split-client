@@ -5,7 +5,7 @@ import {PropertyDto} from '../../dtos/properties/PropertyDto';
 import {
   PropertyInvitationStatusDto,
 } from '../../dtos/properties/PropertyInvitationStatusDto';
-import {ExpenseBreakdownDto} from "../../dtos/expenses/ExpenseBreakdownDto";
+import {ExpenseBreakdownDto} from '../../dtos/expenses/ExpenseBreakdownDto';
 
 @Injectable({
   providedIn: 'root',
@@ -90,17 +90,25 @@ export class PropertyService {
     );
   }
 
-  getTotalExpensesPerMonthForProperty(propertyId: string) {
+  getTotalExpensesPerMonthForProperty(
+      propertyId: string,
+      month: number,
+      year: number,
+  ) {
     return this.httpClient.get<string>(
         // eslint-disable-next-line max-len
-        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-total`,
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-total/${month}/${year}`,
     );
   }
 
-  getTotalExpensesPerTenantPerMonthForProperty(propertyId: string) {
+  getTotalExpensesPerTenantPerMonthForProperty(
+      propertyId: string,
+      month: number,
+      year: number,
+  ) {
     return this.httpClient.get<ExpenseBreakdownDto>(
         // eslint-disable-next-line max-len
-        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-per-tenant`,
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-per-tenant/${month}/${year}`,
     );
   }
 }

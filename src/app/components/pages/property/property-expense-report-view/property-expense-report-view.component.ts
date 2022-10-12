@@ -7,7 +7,7 @@ import {ExpenseService} from '../../../../services/expense/expense.service';
 import {
   ExpenseFrequency,
 } from '../../../../dtos/expenses/enum/ExpenseFrequency';
-import {ExpenseBreakdownDto} from "../../../../dtos/expenses/ExpenseBreakdownDto";
+import {ExpenseBreakdownDto} from '../../../../dtos/expenses/ExpenseBreakdownDto';
 
 @Component({
   selector: 'app-property-expense-report-view',
@@ -48,13 +48,23 @@ export class PropertyExpenseReportViewComponent implements OnInit {
               expense.frequency = ExpenseFrequency[expense.frequency];
             }
           });
+      const currentDate = new Date();
+      currentDate.setMonth(currentDate.getMonth() + 1);
       this.propertyService
-          .getTotalExpensesPerMonthForProperty(params['id'])
+          .getTotalExpensesPerMonthForProperty(
+              params['id'],
+              currentDate.getMonth(),
+              currentDate.getFullYear(),
+          )
           .subscribe((total) => {
             this.totalExpenses = total;
           });
       this.propertyService
-          .getTotalExpensesPerTenantPerMonthForProperty(params['id'])
+          .getTotalExpensesPerTenantPerMonthForProperty(
+              params['id'],
+              currentDate.getMonth(),
+              currentDate.getFullYear(),
+          )
           .subscribe((tenantExpenseBreakdown) => {
             this.tenantExpenseBreakdown = tenantExpenseBreakdown;
           });
