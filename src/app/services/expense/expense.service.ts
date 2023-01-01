@@ -18,6 +18,16 @@ export class ExpenseService {
     );
   }
 
+  getExpensesForPropertyForMonth(
+      propertyId: string,
+      month: number,
+      year: number) {
+    return this.httpClient.get<ExpenseDto[]>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/expenses/for/property/${propertyId}/month/${month}/year/${year}`,
+    );
+  }
+
   createExpense(
       propertyId: string,
       title: string,

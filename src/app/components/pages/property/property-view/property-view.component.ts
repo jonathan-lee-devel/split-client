@@ -59,14 +59,18 @@ export class PropertyViewComponent implements OnInit {
                   });
             }
           });
-      this.expenseService.getExpensesForProperty(params['id'])
-          .subscribe((expenses) => {
-            this.expenses = expenses;
-            for (const expense of this.expenses) {
-            // @ts-ignore
-              expense.frequency = ExpenseFrequency[expense.frequency];
-            }
-          });
+      const currentDate = new Date();
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      this.expenseService.getExpensesForPropertyForMonth(
+          params['id'],
+          currentDate.getMonth(),
+          currentDate.getFullYear()).subscribe((expenses) => {
+        this.expenses = expenses;
+        for (const expense of this.expenses) {
+          // @ts-ignore
+          expense.frequency = ExpenseFrequency[expense.frequency];
+        }
+      });
     });
   }
 
