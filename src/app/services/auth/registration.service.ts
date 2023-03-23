@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {RegisterDto} from '../../dtos/ auth/RegisterDto';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
@@ -49,8 +49,10 @@ export class RegistrationService {
    * @return {Observable<RegistrationStatusDto>} registration status
    */
   public confirmRegistration(token: string): Observable<RegistrationStatusDto> {
-    return this.httpClient.get<RegistrationStatusDto>(
-        `${environment.FRONT_END_API_URL}/users/register/confirm/${token}`,
+    return this.httpClient.post<RegistrationStatusDto>(
+        `${environment.FRONT_END_API_URL}/users/register/confirm`, {
+          tokenValue: token,
+        },
     );
   }
 }
