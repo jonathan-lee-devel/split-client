@@ -43,9 +43,11 @@ export class PropertyService {
   }
 
   confirmPropertyInvitation(token: string) {
-    return this.httpClient.get<PropertyInvitationStatusDto>(
+    return this.httpClient.post<PropertyInvitationStatusDto>(
         // eslint-disable-next-line max-len
-        `${environment.FRONT_END_API_URL}/invitations/confirm/${token}`,
+        `${environment.FRONT_END_API_URL}/invitations/confirm`, {
+          tokenValue: token,
+        },
     );
   }
 
