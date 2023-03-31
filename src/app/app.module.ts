@@ -54,6 +54,7 @@ import { PropertyExpenseReportViewComponent } from './components/pages/property/
 import { ExpenseDistributionAssignmentCreateComponent } from './components/pages/expense/distribution-asssignments/expense-distribution-assignment-create/expense-distribution-assignment-create.component';
 import { PropertyManageExpenseDistributionAssignmentsComponent } from './components/pages/property/property-admin/property-manage-expense-distribution-assignments/property-manage-expense-distribution-assignments.component';
 import { ExpenseDistributionAssignmentEditComponent } from './components/pages/expense/distribution-asssignments/expense-distribution-assignment-edit/expense-distribution-assignment-edit.component';
+import { LandingPageComponent } from './components/pages/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { ExpenseDistributionAssignmentEditComponent } from './components/pages/e
     ExpenseDistributionAssignmentCreateComponent,
     PropertyManageExpenseDistributionAssignmentsComponent,
     ExpenseDistributionAssignmentEditComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
