@@ -11,6 +11,7 @@ import {AuthService} from '../../services/auth/auth.service';
  */
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
+  isMobile: boolean = false;
 
   /**
    * Standard constructor.
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
    * Init function for header component.
    */
   ngOnInit(): void {
+    this.isMobile = window.innerWidth <= 640 && window.innerHeight <= 1200;
   }
 
   /**
