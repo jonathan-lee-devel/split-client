@@ -6,12 +6,15 @@ import {
   PropertyInvitationStatusDto,
 } from '../../dtos/properties/PropertyInvitationStatusDto';
 import {ExpenseBreakdownDto} from '../../dtos/expenses/ExpenseBreakdownDto';
+import {AuthService} from '../auth/auth.service';
+import {LoginDto} from '../../dtos/ auth/LoginDto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropertyService {
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+    private authService: AuthService) {
   }
 
   getPropertyById(propertyId: string) {
@@ -51,10 +54,12 @@ export class PropertyService {
     );
   }
 
-  getIsPropertyAdmin(propertyId: string) {
-    return this.httpClient.get<boolean>(
-        `${environment.FRONT_END_API_URL}/properties/${propertyId}/isAdmin`,
-    );
+  getIsPropertyAdmin(property: PropertyDto) {
+    const userInfo: LoginDto | null = this.authService.getUserInfo();
+    if (!userInfo || !userInfo.username) {
+      return false;
+    }
+    return property.administratorEmails.includes(userInfo.username);
   }
 
   deleteProperty(propertyId: string) {

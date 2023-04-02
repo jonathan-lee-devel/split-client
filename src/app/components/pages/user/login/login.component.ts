@@ -20,11 +20,4 @@ export class LoginComponent implements OnInit {
   doLogin() {
     this.authService.validate(this.email, this.password);
   }
-
-  doGoogleLogin(): void {
-    this.authService.setUserInfo({
-      login_status: 'SUCCESS',
-    });
-    this.authService.isLoggedIn.next(true);
-  }
 }
