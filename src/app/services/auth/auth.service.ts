@@ -50,6 +50,19 @@ export class AuthService {
   }
 
   /**
+   * Allow for user info to be obtained.
+   * @return {LoginDto | null} login user info or null for non-logged-in
+   */
+  public getUserInfo(): LoginDto | null {
+    const userInfo = localStorage.getItem(AuthService.USER_DATA_KEY);
+    if (userInfo) {
+      return JSON.parse(userInfo);
+    } else {
+      return null;
+    }
+  }
+
+  /**
    * Used to set user info within local storage.
    * @param {LoginDto} userInfo data to be stored
    */
@@ -86,7 +99,7 @@ export class AuthService {
     this.httpClient
         .post<LoginDto>(`${environment.FRONT_END_API_URL}/users/logout`, {})
         .subscribe((_) => {
-          this.setUserInfo({login_status: 'LOGGED_OUT'});
+          this.setUserInfo({login_status: 'LOGGED_OUT', username: undefined});
           this.router.navigate(['/login']);
         });
     this.isLoggedIn.next(false);

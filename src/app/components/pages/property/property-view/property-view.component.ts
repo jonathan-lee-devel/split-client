@@ -45,10 +45,8 @@ export class PropertyViewComponent implements OnInit {
       this.propertyService.getPropertyById(params['id'])
           .subscribe((property) => {
             this.property = property;
-          });
-      this.propertyService.getIsPropertyAdmin(params['id'])
-          .subscribe((isAdmin) => {
-            this.isPropertyAdmin = isAdmin;
+            this.isPropertyAdmin = this.propertyService
+                .getIsPropertyAdmin(property);
             if (this.isPropertyAdmin) {
               this.expenseService
                   .getExpenseDistributionAssignmentsForProperty(
