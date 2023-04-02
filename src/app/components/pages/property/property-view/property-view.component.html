@@ -32,12 +32,14 @@
             <tr>
               <th scope="col">E-mail</th>
               <th scope="col">Accepted</th>
+              <th scope="col">Administrator</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let tenant of property.tenantEmails">
               <td>{{tenant}}</td>
               <td>{{toIsAcceptedCharacter(tenant)}}</td>
+              <td>{{toIsAdministratorCharacter(tenant)}}</td>
             </tr>
             </tbody>
           </table>

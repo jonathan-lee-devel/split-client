@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {PropertyDto} from '../../../../../dtos/properties/PropertyDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../../dtos/properties/PropertyDto';
 import {
   PropertyService,
 } from '../../../../../services/property/property.service';
@@ -16,19 +19,15 @@ import {
   styleUrls: ['./property-manage-expenses.component.css'],
 })
 export class PropertyManageExpensesComponent implements OnInit {
-  property: PropertyDto = {
-    id: '',
-    title: '',
-    tenantEmails: [],
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
     private expenseService: ExpenseService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -40,7 +39,7 @@ export class PropertyManageExpensesComponent implements OnInit {
           .subscribe((expenses) => {
             this.expenses = expenses;
             for (const expense of this.expenses) {
-              // @ts-ignore
+            // @ts-ignore
               expense.frequency = ExpenseFrequency[expense.frequency];
             }
           });

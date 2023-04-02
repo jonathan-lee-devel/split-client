@@ -2,10 +2,17 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from '../../../../../services/expense/expense.service';
 import {ModalService} from '../../../../../services/modal/modal.service';
-import {PropertyDto} from '../../../../../dtos/properties/PropertyDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../../dtos/properties/PropertyDto';
 import {ExpenseDto} from '../../../../../dtos/expenses/ExpenseDto';
-import {PropertyService} from '../../../../../services/property/property.service';
-import {ExpenseDistributionAssignmentDto} from '../../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
+import {
+  PropertyService,
+} from '../../../../../services/property/property.service';
+import {
+  ExpenseDistributionAssignmentDto,
+} from '../../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
 
 @Component({
   selector: 'app-expense-distribution-assignment-edit',
@@ -21,12 +28,7 @@ export class ExpenseDistributionAssignmentEditComponent implements OnInit {
     id: '',
   };
   propertyId: string = '';
-  property: PropertyDto = {
-    id: '',
-    title: '',
-    tenantEmails: [],
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
   expenseId: string = '';
   expenseTitle: string = '';
@@ -34,10 +36,10 @@ export class ExpenseDistributionAssignmentEditComponent implements OnInit {
   amount: number = 0.00;
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private propertyService: PropertyService,
-              private expenseService: ExpenseService,
-              private modalService: ModalService) {
+    private router: Router,
+    private propertyService: PropertyService,
+    private expenseService: ExpenseService,
+    private modalService: ModalService) {
   }
 
   ngOnInit(): void {
