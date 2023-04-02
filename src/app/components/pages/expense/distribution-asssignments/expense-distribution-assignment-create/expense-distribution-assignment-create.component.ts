@@ -2,8 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from '../../../../../services/expense/expense.service';
 import {ExpenseDto} from '../../../../../dtos/expenses/ExpenseDto';
-import {PropertyService} from '../../../../../services/property/property.service';
-import {PropertyDto} from '../../../../../dtos/properties/PropertyDto';
+import {
+  PropertyService,
+} from '../../../../../services/property/property.service';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../../dtos/properties/PropertyDto';
 import {ModalService} from '../../../../../services/modal/modal.service';
 
 @Component({
@@ -14,21 +19,16 @@ import {ModalService} from '../../../../../services/modal/modal.service';
 export class ExpenseDistributionAssignmentCreateComponent implements OnInit {
   amount: number = 0.00;
   propertyId: string = '';
-  property: PropertyDto = {
-    id: '',
-    title: '',
-    tenantEmails: [],
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
   expenseId: string = '';
   tenantEmail: string = '';
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private propertyService: PropertyService,
-              private expenseService: ExpenseService,
-              private modalService: ModalService) {
+    private router: Router,
+    private propertyService: PropertyService,
+    private expenseService: ExpenseService,
+    private modalService: ModalService) {
   }
 
   ngOnInit(): void {

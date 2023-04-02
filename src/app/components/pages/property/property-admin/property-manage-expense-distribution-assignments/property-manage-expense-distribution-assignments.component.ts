@@ -1,9 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {PropertyService} from '../../../../../services/property/property.service';
+import {
+  PropertyService,
+} from '../../../../../services/property/property.service';
 import {ExpenseService} from '../../../../../services/expense/expense.service';
-import {PropertyDto} from '../../../../../dtos/properties/PropertyDto';
-import {ExpenseDistributionAssignmentDto} from '../../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../../dtos/properties/PropertyDto';
+import {
+  ExpenseDistributionAssignmentDto,
+} from '../../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
 import {ExpenseDto} from '../../../../../dtos/expenses/ExpenseDto';
 
 @Component({
@@ -12,12 +19,7 @@ import {ExpenseDto} from '../../../../../dtos/expenses/ExpenseDto';
   styleUrls: ['./property-manage-expense-distribution-assignments.component.css'],
 })
 export class PropertyManageExpenseDistributionAssignmentsComponent implements OnInit {
-  property: PropertyDto = {
-    id: '',
-    tenantEmails: [],
-    title: '',
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
   expenseDistributionAssignments:
     ExpenseDistributionAssignmentDto[] = [];

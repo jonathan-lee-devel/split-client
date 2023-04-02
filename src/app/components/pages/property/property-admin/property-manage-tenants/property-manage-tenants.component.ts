@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {PropertyDto} from '../../../../../dtos/properties/PropertyDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../../dtos/properties/PropertyDto';
 import {ActivatedRoute} from '@angular/router';
 import {
   PropertyService,
@@ -11,17 +14,13 @@ import {
   styleUrls: ['./property-manage-tenants.component.css'],
 })
 export class PropertyManageTenantsComponent implements OnInit {
-  property: PropertyDto = {
-    id: '',
-    title: '',
-    tenantEmails: [],
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
 
   constructor(
     private route: ActivatedRoute,
     private propertyService: PropertyService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

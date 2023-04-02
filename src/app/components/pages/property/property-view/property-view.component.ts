@@ -1,11 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {PropertyDto} from '../../../../dtos/properties/PropertyDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../dtos/properties/PropertyDto';
 import {PropertyService} from '../../../../services/property/property.service';
 import {ActivatedRoute} from '@angular/router';
 import {ExpenseDto} from '../../../../dtos/expenses/ExpenseDto';
 import {ExpenseService} from '../../../../services/expense/expense.service';
-import {ExpenseFrequency} from '../../../../dtos/expenses/enum/ExpenseFrequency';
-import {ExpenseDistributionAssignmentDto} from '../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
+import {
+  ExpenseFrequency,
+} from '../../../../dtos/expenses/enum/ExpenseFrequency';
+import {
+  ExpenseDistributionAssignmentDto,
+} from '../../../../dtos/expenses/ExpenseDistributionAssignmentDto';
 
 @Component({
   selector: 'app-property-view',
@@ -16,12 +23,7 @@ import {ExpenseDistributionAssignmentDto} from '../../../../dtos/expenses/Expens
  * Property view component.
  */
 export class PropertyViewComponent implements OnInit {
-  property: PropertyDto = {
-    id: '',
-    title: '',
-    tenantEmails: [],
-    acceptedTenantEmails: [],
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
   isPropertyAdmin: boolean = false;
   expenseDistributionAssignments: ExpenseDistributionAssignmentDto[] = [];
@@ -79,8 +81,8 @@ export class PropertyViewComponent implements OnInit {
     return wrappedDate.toLocaleDateString();
   }
 
-  toIsAcceptedCharacter(tenant: string) {
-    return (this.property.acceptedTenantEmails.includes(tenant)) ? '✓' : 'X';
+  toIsAcceptedCharacter(tenantEmail: string) {
+    return (this.property.acceptedTenantEmails.includes(tenantEmail)) ? '✓' : 'X';
   }
 
   expenseIdToTitle(expenseId: string) {
@@ -92,5 +94,10 @@ export class PropertyViewComponent implements OnInit {
   amountNumberToAmountString(amount: string) {
     const amountAsFloat = parseFloat(String(Number(amount) / 100)).toFixed(2);
     return `€${amountAsFloat}`;
+  }
+
+  toIsAdministratorCharacter(tenantEmail: string) {
+    return (this.property.administratorEmails
+        .includes(tenantEmail)) ? '✓' : 'X';
   }
 }

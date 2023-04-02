@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {PropertyDto} from '../../../../dtos/properties/PropertyDto';
+import {
+  DEFAULT_PROPERTY_DTO,
+  PropertyDto,
+} from '../../../../dtos/properties/PropertyDto';
 import {ExpenseDto} from '../../../../dtos/expenses/ExpenseDto';
 import {ActivatedRoute} from '@angular/router';
 import {PropertyService} from '../../../../services/property/property.service';
@@ -7,7 +10,9 @@ import {ExpenseService} from '../../../../services/expense/expense.service';
 import {
   ExpenseFrequency,
 } from '../../../../dtos/expenses/enum/ExpenseFrequency';
-import {ExpenseBreakdownDto} from '../../../../dtos/expenses/ExpenseBreakdownDto';
+import {
+  ExpenseBreakdownDto,
+} from '../../../../dtos/expenses/ExpenseBreakdownDto';
 
 @Component({
   selector: 'app-property-expense-report-view',
@@ -15,12 +20,7 @@ import {ExpenseBreakdownDto} from '../../../../dtos/expenses/ExpenseBreakdownDto
   styleUrls: ['./property-expense-report-view.component.css'],
 })
 export class PropertyExpenseReportViewComponent implements OnInit {
-  property: PropertyDto = {
-    acceptedTenantEmails: [],
-    id: '',
-    tenantEmails: [],
-    title: '',
-  };
+  property: PropertyDto = DEFAULT_PROPERTY_DTO;
   expenses: ExpenseDto[] = [];
   totalExpenses: string = '$100.00';
   tenantExpenseBreakdown: ExpenseBreakdownDto = {
