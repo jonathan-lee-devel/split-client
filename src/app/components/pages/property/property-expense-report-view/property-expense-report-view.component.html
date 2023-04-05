@@ -7,7 +7,7 @@
       </div>
       <div class="mb-md-5 mt-md-4 pb-5">
         <h3 class="fw-bold mb-2 text-uppercase">Expenses:</h3>
-        <div class="row"><h4>Expense Breakdown For Property</h4></div>
+        <div class="row mt-4 pt-4"><h4>Expense Breakdown For Property</h4></div>
         <div *ngIf="expenses.length === 0" class="row justify-content-center mb-md-5 mt-md-4 pb-5">
           <div class="card inner-card">
             <div class="card-body">
@@ -49,21 +49,7 @@
             </tbody>
           </table>
         </div>
-        <div class="row"><h4>Expense Breakdown For Logged-in Tenant</h4></div>
-        <div class="table-responsive">
-          <table *ngIf="expenses.length !== 0" class="table table-dark table-hover">
-            <thead>
-            <tr>
-              <th scope="col">Number of Tenants</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>{{property.tenantEmails.length}}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="row mt-4 pt-4"><h4>Expense Breakdown For Logged-in Tenant</h4></div>
         <div class="table-responsive">
           <table *ngIf="tenantExpenseBreakdown.expenses.length !== 0" class="table table-dark table-hover">
             <thead>
@@ -76,6 +62,20 @@
             <tr *ngFor="let tenantExpenseBreakdownExpense of tenantExpenseBreakdown.expenses">
               <td>{{tenantExpenseBreakdownExpense.expenseTitle}}</td>
               <td>{{tenantExpenseBreakdownExpense.amount}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <table *ngIf="expenses.length !== 0" class="table table-dark table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Number of Tenants</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{property.tenantEmails.length}}</td>
             </tr>
             </tbody>
           </table>
