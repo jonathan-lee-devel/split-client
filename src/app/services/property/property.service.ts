@@ -118,4 +118,24 @@ export class PropertyService {
         `${environment.FRONT_END_API_URL}/properties/${propertyId}/expenses-per-tenant/${month}/${year}`,
     );
   }
+
+  escalateTenantInProperty(propertyId: string, tenantEmailToEscalate: string) {
+    return this.httpClient.patch<PropertyInvitationStatusDto>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/escalate-tenant`,
+        {
+          tenantEmailToEscalate,
+        },
+    );
+  }
+
+  deescalateTenantInProperty(propertyId: string, tenantEmailToDeescalate: string) {
+    return this.httpClient.patch<PropertyInvitationStatusDto>(
+        // eslint-disable-next-line max-len
+        `${environment.FRONT_END_API_URL}/properties/${propertyId}/deescalate-tenant`,
+        {
+          tenantEmailToDeescalate,
+        },
+    );
+  }
 }
