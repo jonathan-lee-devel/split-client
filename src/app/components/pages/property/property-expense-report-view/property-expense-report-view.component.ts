@@ -52,14 +52,6 @@ export class PropertyExpenseReportViewComponent implements OnInit {
           expense.frequency = ExpenseFrequency[expense.frequency];
         }
       });
-      this.expenseService.getExpensesForProperty(params['id'])
-          .subscribe((expenses) => {
-            this.expenses = expenses;
-            for (const expense of this.expenses) {
-            // @ts-ignore
-              expense.frequency = ExpenseFrequency[expense.frequency];
-            }
-          });
       this.propertyService
           .getTotalExpensesPerMonthForProperty(
               params['id'],
